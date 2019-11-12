@@ -6,8 +6,6 @@ import java.awt.*;
 
 public class Board {
 
-
-
     public Board() { }
 
     public static GUI_Field[] createBoard() {
@@ -190,6 +188,7 @@ public class Board {
 
         //______________________________________//
 
+        GUI gui = new GUI(fields, Color.white);
         return fields;
     }
 }

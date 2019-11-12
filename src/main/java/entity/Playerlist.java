@@ -7,8 +7,8 @@ public class Playerlist {
 
     public Playerlist(int players) {
         Players = new Player[players];
-        for (int i = 0;i < players; i++)
-            Players[i] = new Player();
+        for (int i = 0;i < players; i++);
+            //Players[i] = new Player();
     }
 
     /**
@@ -19,7 +19,7 @@ public class Playerlist {
         String[] navne = {};
         for (int i=0; i<antal;i++){
             Players[i].setName(navne[i]);
-            Players[i].setColor();
+            //Players[i].setColor();
         }
     }
 
