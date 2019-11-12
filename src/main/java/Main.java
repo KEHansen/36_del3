@@ -1,6 +1,10 @@
+import board.Board;
+import gui_main.GUI;
+
 public class Main {
     public static void main(String[] args) {
-        Game game = new Game();
-        game.playGame();
+        GUI.setNull_fields_allowed(true);
+        Board board = new Board();
+        board.createBoard();
     }
 }

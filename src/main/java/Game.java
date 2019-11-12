@@ -4,10 +4,5 @@ import gui_main.GUI;
 import java.awt.Color;
 
 public class Game {
-    public void playGame(){
-
-
-
-    }
 
 }
