@@ -28,4 +28,9 @@ public class Dice {
     public void setFaceValue(int faceValue) {
         this.faceValue = faceValue;
     }
+
+    @Override
+    public String toString() {
+        return "Dice: " + faceValue;
+    }
 }
