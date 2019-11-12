@@ -17,6 +17,10 @@ public class Account extends Player {
         this.balance = balance;
     }
 
+    public void addToBalance(int diff) {
+        this.balance =+ diff;
+    }
+
     @Override
     public String toString() {
         return getName() + "'s balance: " + balance + "M";
