@@ -1,13 +1,13 @@
 package entity;
-import java.util.Scanner;
+
 
 public class Playerlist {
 
     private Player[] Players;
 
-    public Playerlist(int amount) {
-        Players = new Player[amount];
-        for (int i = 0;i < amount;i++)
+    public Playerlist(int players) {
+        Players = new Player[players];
+        for (int i = 0;i < players; i++)
             Players[i] = new Player();
     }
 

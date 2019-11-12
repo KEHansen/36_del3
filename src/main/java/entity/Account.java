@@ -1,12 +1,17 @@
 package entity;
 
+import java.awt.*;
+
 public class Account extends Player {
 
-    public int balance;
+    private int balance;
+    private boolean balanceZero;
 
-    public Account(String name, int balance) {
-        super(name);
+
+    public Account(String name, Color color, int balance) {
+        super(name, color);
         this.balance = balance;
+        balanceZero = false;
     }
 
     public int getBalance() {
@@ -20,6 +25,8 @@ public class Account extends Player {
     public void addToBalance(int diff) {
         this.balance =+ diff;
     }
+
+    public boolean isBalanceZero() {return balanceZero;}
 
     @Override
     public String toString() {
