@@ -1,4 +1,4 @@
-package board;
+package boundary;
 
 public class Field {
 }

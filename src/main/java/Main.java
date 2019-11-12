@@ -1,4 +1,4 @@
-import board.Board;
+import boundary.Board;
 import gui_main.GUI;
 
 public class Main {

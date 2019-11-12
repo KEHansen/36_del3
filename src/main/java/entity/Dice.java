@@ -1,3 +1,5 @@
+package entity;
+
 public class Dice {
 
     private int faces;
