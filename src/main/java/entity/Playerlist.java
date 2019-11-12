@@ -1,13 +1,14 @@
 package entity;
+import java.util.Scanner;
 
 public class Playerlist {
 
     private Player[] Players;
 
     public Playerlist(int amount) {
-        Players = new Spiller[antal];
-        for (int i = 0;i < antal;i++)
-            spillere[i] = new Spiller();
+        Players = new Player[amount];
+        for (int i = 0;i < amount;i++)
+            Players[i] = new Player();
     }
 
     /**
@@ -15,10 +16,10 @@ public class Playerlist {
      * @param antal antal spillere der skal tilf�jes
      */
     public void addspiller(int antal){
-        String[] navne = {"Peter ","Lene  ","Jan   ","Tobias","Jytte ","Lone  "};
+        String[] navne = {};
         for (int i=0; i<antal;i++){
-            spillere[i].setNavn(navne[i]);
-            spillere[i].setColor(i);
+            Players[i].setName(navne[i]);
+            Players[i].setColor(i);
         }
     }
 
