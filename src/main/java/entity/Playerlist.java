@@ -19,7 +19,7 @@ public class Playerlist {
         String[] navne = {};
         for (int i=0; i<antal;i++){
             Players[i].setName(navne[i]);
-            Players[i].setColor(i);
+            Players[i].setColor();
         }
     }
 

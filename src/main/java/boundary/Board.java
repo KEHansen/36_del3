@@ -1,16 +1,17 @@
 package boundary;
-
 import gui_fields.GUI_Field;
 import gui_fields.GUI_Street;
 import gui_main.GUI;
 import java.awt.*;
 
 public class Board {
+
+
+
     public Board() { }
 
-    public void createBoard() {
+    public static GUI_Field[] createBoard() {
         GUI_Field[] fields = new GUI_Field[24];
-
 
         GUI_Street start = new GUI_Street();
         start.setTitle("START");
@@ -189,7 +190,6 @@ public class Board {
 
         //______________________________________//
 
-        GUI gui = new GUI(fields,Color.white);
-
+        return fields;
     }
 }
