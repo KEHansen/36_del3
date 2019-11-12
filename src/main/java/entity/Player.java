@@ -1,4 +1,4 @@
-package player;
+package entity;
 
 public class Player {
 
