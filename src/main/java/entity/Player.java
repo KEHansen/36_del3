@@ -1,8 +1,9 @@
 package entity;
 
 public class Player {
-
     private String name;
+    private int color;
+
 
     public Player(String name) {
         this.name = name;

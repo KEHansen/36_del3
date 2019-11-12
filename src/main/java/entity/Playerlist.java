@@ -4,8 +4,8 @@ public class Playerlist {
 
     private Player[] Players;
 
-    public Playerlist(int amount) {
-        Players = new Spiller[antal];
+    public Playerlist(int Account) {
+        Players = new Player[Account];
         for (int i = 0;i < antal;i++)
             spillere[i] = new Spiller();
     }
@@ -15,7 +15,7 @@ public class Playerlist {
      * @param antal antal spillere der skal tilf�jes
      */
     public void addspiller(int antal){
-        String[] navne = {"Peter ","Lene  ","Jan   ","Tobias","Jytte ","Lone  "};
+        String[] navne = ;
         for (int i=0; i<antal;i++){
             spillere[i].setNavn(navne[i]);
             spillere[i].setColor(i);
