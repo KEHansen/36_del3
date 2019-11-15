@@ -3,9 +3,14 @@ package controller;
 import boundary.Board;
 import gui_main.GUI;
 
-public class Controller {
-    public GUI gui = new GUI(Board.createBoard());
+import java.awt.*;
 
+public class Controller {
+     public void playgame(){
+         GUI gui = new GUI(Board.createBoard(), Color.cyan);
+
+
+     }
 
 
 }
