@@ -15,7 +15,7 @@ public class Playerlist {
      * tilf�jer harcoded spilere til spillerlisten
      * @param antal antal spillere der skal tilf�jes
      */
-    public void addspiller(int antal){
+    public void addplayer(int antal){
         String[] navne = {};
         for (int i=0; i<antal;i++){
             Players[i].setName(navne[i]);
