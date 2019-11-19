@@ -10,6 +10,20 @@ public class Input {
         this.gui = gui;
     }
 
-    public void
+    public int waitForInt(String s) {
+        int temp = gui.getUserInteger(s);
+        while (temp >= 2 && temp <= 4) {
+            temp = gui.getUserInteger(s);
+        }
+        return temp;
+    }
+
+    public void waitForEnter() {
+        gui.getUserButtonPressed("", "ENTER");
+    }
+
+    public String waitForString(String s) {
+        return gui.getUserString(s);
+    }
 
 }
