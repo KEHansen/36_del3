@@ -1,23 +1,20 @@
 package entity;
 
+import java.awt.*;
+
 public class Field {
     private int nr;
     private String name;
     private int value;
     private String text;
+    private Color color;
 
-    public Field(int nr, String name, int value, String text) {
+    public Field(int nr, String name, int value, String text, Color color) {
         this.nr = nr;
         this.name = name;
         this.value = value;
         this.text = text;
-    }
-
-    // empty text
-    public Field(int nr, String name, int value) { this(nr, name, value, ""); }
-
-    public int getNr() {
-        return nr;
+        this.color = color;
     }
 
     public void setNr(int nr) {
@@ -36,7 +33,7 @@ public class Field {
         return value;
     }
 
-    public void setValuei(int value) {
+    public void setValue(int value) {
         this.value = value;
     }
 

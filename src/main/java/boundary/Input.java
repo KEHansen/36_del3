@@ -11,7 +11,7 @@ public class Input {
     }
 
     public int waitForInt(String s) {
-        int temp = 0;
+        int temp = gui.getUserInteger(s);
         while (temp >= 2 && temp <= 4) {
             temp = gui.getUserInteger(s);
         }
