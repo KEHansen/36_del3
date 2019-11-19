@@ -1,15 +1,22 @@
 package entity;
 
 
+import java.awt.*;
+
 public class Playerlist {
 
-    private Player[] Players;
+    private Player[] players;
 
-    public Playerlist(int players) {
-        Players = new Player[players];
-        for (int i = 0;i < players; i++);
-            //Players[i] = new Player();
+    public Playerlist(int playersNum) {
+        players = new Player[playersNum];
+        for (int i = 0; i < playersNum; i++)
+            players[i] = new Player();
     }
+
+        void p ( int i, String s){
+            players[i].setName();
+        }
+
 
     /**
      * tilf�jer harcoded spilere til spillerlisten
@@ -18,7 +25,7 @@ public class Playerlist {
     public void addplayer(int antal){
         String[] navne = {};
         for (int i=0; i<antal;i++){
-            Players[i].setName(navne[i]);
+            players[i].setName(navne[i]);
             //Players[i].setColor();
         }
     }

@@ -1,5 +1,7 @@
 package entity;
 
+import gui_fields.GUI_Car;
+
 import java.awt.*;
 
 public class Player {
@@ -9,6 +11,7 @@ public class Player {
     public Player(String name, Color color) {
         this.name = name;
         this.color = color;
+
     }
 
     public String getName() {
@@ -32,3 +35,4 @@ public class Player {
         return name;
     }
 }
+
