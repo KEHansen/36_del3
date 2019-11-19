@@ -24,7 +24,7 @@ public class Controller {
 
          //gui.addPlayer(); //Sæt spilleren på
          Input i = new Input();
-         i.a
+
 
 
 
