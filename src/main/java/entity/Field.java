@@ -8,6 +8,7 @@ public class Field {
     private int value;
     private String text;
     private Color color;
+    private int ownerID;
 
     public Field(int nr, String name, int value, String text, Color color) {
         this.nr = nr;
@@ -44,4 +45,21 @@ public class Field {
     public void setText(String text) {
         this.text = text;
     }
+
+    public Color getColor() {
+        return color;
+    }
+
+    public void setColor(Color color) {
+        this.color = color;
+    }
+
+    public int getOwnerID() {
+        return ownerID;
+    }
+
+    public void setOwnerID(int ownerID) {
+        this.ownerID = ownerID;
+    }
 }
+

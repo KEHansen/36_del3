@@ -66,4 +66,8 @@ public class FieldList {
         }
         return fieldText;
     }
+
+    public Field[] getFields() {
+        return fields;
+    }
 }
