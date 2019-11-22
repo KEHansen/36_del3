@@ -47,6 +47,7 @@ public class MatadorGUI {
     }
 
 
+
     public void StartText() {gui.showMessage(String.format(Text.TEXT[0]));}
 
     public void init() {

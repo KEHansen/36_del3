@@ -10,6 +10,7 @@ public class Input {
         this.gui = gui;
     }
 
+    //
     public int waitForInt(String s) {
         int temp = gui.getUserInteger(s);
         while (temp >= 2 && temp <= 4) {

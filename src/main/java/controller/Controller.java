@@ -26,13 +26,20 @@ public class Controller {
           GUI gui = new GUI(gui1.createFields(fieldList.getFields()));
           //GUI gui = new GUI(Board.createBoard());
 
+          int playerNum = gui.getUserInteger("How many players are you?", 2,4);
+
+          Playerlist list = new Playerlist(playerNum);
+
+          for (int i = 0; i < list.getPlayersNum(); i++) {
+              String name = gui.getUserString("set player" + (i) + " " + "name");
+               list.getPlayer(i).setName(name);
+          }
 
 
 
 
 
 
-     }
-
+    }
 
 }
