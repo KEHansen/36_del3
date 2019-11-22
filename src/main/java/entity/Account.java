@@ -2,14 +2,13 @@ package entity;
 
 import java.awt.*;
 
-public class Account extends Player {
+public class Account {
 
     private int balance;
     private boolean balanceZero;
 
 
-    public Account(String name, Color color, int balance) {
-        super(name, color);
+    public Account(int balance) {
         this.balance = balance;
         balanceZero = false;
     }
@@ -30,6 +29,6 @@ public class Account extends Player {
 
     @Override
     public String toString() {
-        return getName() + "'s balance: " + balance + "M";
+        return balance + "M";
     }
 }

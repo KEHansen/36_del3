@@ -9,7 +9,7 @@ public class Player {
     private boolean haveLost;
     private boolean throwAgain;
     private boolean inPrison;
-
+    private Account account;
 
     public Player(String name, Color color) {
         //todo "Husk at argumentere for at vi har money, som en parameter."
@@ -18,6 +18,7 @@ public class Player {
         haveLost=false;
         throwAgain=false;
         inPrison=false;
+
     }
 
     public String getName() { return name; }
@@ -41,6 +42,8 @@ public class Player {
     public void setMoney(int money) {
         this.money = money;
     }
+
+    public void addMoney(int diff) { this.money =+ diff;}
 
     public boolean isHaveLost() {return haveLost;}
 
