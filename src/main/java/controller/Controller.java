@@ -15,7 +15,9 @@ import gui_main.GUI;
 import java.awt.*;
 import java.util.Scanner;
 
+
 public class Controller {
+
      public void playgame(){
 
 
@@ -35,7 +37,7 @@ public class Controller {
                list.getPlayer(i).setName(name);
           }
 
-
+          MatadorGUI.startInfo();
 
 
 

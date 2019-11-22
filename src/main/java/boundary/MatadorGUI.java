@@ -6,6 +6,7 @@ import gui_fields.GUI_Field;
 import gui_fields.GUI_Player;
 import gui_fields.GUI_Street;
 import gui_main.GUI;
+import entity.Player;
 
 public class MatadorGUI {
 
@@ -46,7 +47,18 @@ public class MatadorGUI {
         return guiFields;
     }
 
-
+    public void startInfo(Player[] p) {
+        players = new GUI_Player[p.length];
+        cars = new GUI_Car[p.length];
+        for (int i=0; i<p.length;i++){
+            cars[i] = new GUI_Car(); //car.setPrimaryColor(Color.YELLOW);
+            players[i] = new GUI_Player(p[i].getName(),p[i].getMoney(), cars[i]);
+            gui.addPlayer(players[i]);
+        }
+        // sæt alle biler på start
+        for (int i = 0; i < players.length; i++)
+            streets[0].setCar(players[i], true);
+    }
 
     public void StartText() {gui.showMessage(String.format(Text.TEXT[0]));}
 
