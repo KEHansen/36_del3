@@ -32,7 +32,8 @@ public class Playerlist {
         return players[i];
     }
 
-//    public void addspiller(int antal){
+
+    //    public void addspiller(int antal){
 //        String[i] name = {};
 //        for (int i=0; i<playersNum;i++){
 //            players[i].setName(navne[i]);

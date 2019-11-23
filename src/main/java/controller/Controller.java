@@ -33,11 +33,13 @@ public class Controller {
           Playerlist list = new Playerlist(playerNum);
 
           for (int i = 0; i < list.getPlayersNum(); i++) {
-              String name = gui.getUserString("set player" + (i) + " " + "name");
+                int no = i+1;
+              String name = gui.getUserString("set player" + (no) + " " + "name");
                list.getPlayer(i).setName(name);
+              System.out.println(list.getPlayer(i));
           }
 
-          MatadorGUI.startInfo();
+         gui1.startInfo(list.getPlayers());
 
 
 

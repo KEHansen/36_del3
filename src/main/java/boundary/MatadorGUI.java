@@ -24,8 +24,6 @@ public class MatadorGUI {
             streets[i].setSubText(fields[i].getText());
             streets[i].setBackGroundColor(fields[i].getColor());
         }
-
-
         return streets;
     }
 
@@ -53,7 +51,8 @@ public class MatadorGUI {
         for (int i=0; i<p.length;i++){
             cars[i] = new GUI_Car(); //car.setPrimaryColor(Color.YELLOW);
             players[i] = new GUI_Player(p[i].getName(),p[i].getMoney(), cars[i]);
-            gui.addPlayer(players[i]);
+            System.out.println(players[i]);
+            // gui.addPlayer(players[i]);
         }
         // sæt alle biler på start
         for (int i = 0; i < players.length; i++)
