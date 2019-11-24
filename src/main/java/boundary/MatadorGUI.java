@@ -17,39 +17,24 @@ public class MatadorGUI {
     private GUI_Field[] guiFields;
     private GUI_Player[] players;
     private GUI_Car[] cars;
-    private GUI_Street[] streets;
     private GUI_Car.Type type;
     private GUI_Car.Pattern pattern;
 
 
-    public MatadorGUI() { }
-
-    public GUI_Street[] createStreets(Field[] fields) {
-        for (int i = 0; i < fields.length; i++) {
-            streets[i].setTitle(fields[i].getName());
-            streets[i].setSubText(fields[i].getText());
-            streets[i].setBackGroundColor(fields[i].getColor());
-        }
-        return streets;
+    public MatadorGUI(GUI gui) {
+        this.gui = gui;
+        this.guiFields= gui.getFields();
     }
 
-    public GUI_Field[] createFields(Field[] fields) {
-
-        guiFields = new GUI_Field[fields.length];
-        streets = new GUI_Street[fields.length];
-
-        for (int i = 0; i < fields.length; i++) {
-            streets[i] = new GUI_Street();
-        }
-
-        for (int i = 0; i < fields.length; i++) {
-            streets[i].setTitle(fields[i].getName());
-            streets[i].setSubText(fields[i].getText());
-            streets[i].setBackGroundColor(fields[i].getColor());
-            guiFields[i] = streets[i];
+    public GUI_Field[] createField(Field[] fields) {
+                for (int i = 0; i < fields.length; i++) {
+                    guiFields[i].setTitle(fields[i].getName());
+                    guiFields[i].setSubText(fields[i].getText());
+                    guiFields[i].setBackGroundColor(fields[i].getColor());
         }
         return guiFields;
     }
+
 
     public void startInfo(Player[] p) {
         players = new GUI_Player[p.length];
@@ -60,23 +45,23 @@ public class MatadorGUI {
             cars[i] = new GUI_Car(p[i].getColor(), null,type.CAR , pattern.FILL);
             players[i] = new GUI_Player(p[i].getName(),p[i].getMoney(), cars[i]);
             System.out.println(players[i]);
-            // gui.addPlayer(players[i]);
+            gui.addPlayer(players[i]);
         }
         // sæt alle biler på start
         for (int i = 0; i < players.length; i++)
-            streets[0].setCar(players[i], true);
+            guiFields[0].setCar(players[i], true);
     }
 
 
 
     public void showGameStatus (Player [] p) {
-        for (int i = 0; i < streets.length; i++) {
-            if (streets[i] != null) {
-                streets[i].removeAllCars();
+        for (int i = 0; i < guiFields.length; i++) {
+            if (guiFields[i] != null) {
+                guiFields[i].removeAllCars();
             }
-            for(int j = 0; j < p.length; j++){
+            for (int j = 0; j < p.length; j++) {
                 // sæt biler og opdater balancer
-                streets[p[j].getFeltIndex()].setCar(players[j], true);
+                guiFields[p[j].getFeltIndex()].setCar(players[j], true);
                 players[j].setBalance(p[j].getMoney());
             }
         }

@@ -132,7 +132,7 @@ public class Board {
         street16.setBackGroundColor(Color.yellow);
         fields[16] = street16;
 
-        GUI_Street street17 = new GUI_Street();
+         GUI_Street street17 = new GUI_Street();
         street17.setTitle("PET STORE");
         street17.setSubText("3M");
         street17.setBackGroundColor(Color.yellow);
