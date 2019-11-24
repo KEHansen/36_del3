@@ -1,12 +1,15 @@
 package boundary;
 
 import entity.Field;
+import entity.Playerlist;
 import gui_fields.GUI_Car;
 import gui_fields.GUI_Field;
 import gui_fields.GUI_Player;
 import gui_fields.GUI_Street;
 import gui_main.GUI;
 import entity.Player;
+
+import java.awt.*;
 
 public class MatadorGUI {
 
@@ -15,6 +18,9 @@ public class MatadorGUI {
     private GUI_Player[] players;
     private GUI_Car[] cars;
     private GUI_Street[] streets;
+    private GUI_Car.Type type;
+    private GUI_Car.Pattern pattern;
+
 
     public MatadorGUI() { }
 
@@ -49,7 +55,9 @@ public class MatadorGUI {
         players = new GUI_Player[p.length];
         cars = new GUI_Car[p.length];
         for (int i=0; i<p.length;i++){
-            cars[i] = new GUI_Car(); //car.setPrimaryColor(Color.YELLOW);
+            System.out.println(p[i]);
+            System.out.println(p[i].getColor());
+            cars[i] = new GUI_Car(p[i].getColor(), null,type.CAR , pattern.FILL);
             players[i] = new GUI_Player(p[i].getName(),p[i].getMoney(), cars[i]);
             System.out.println(players[i]);
             // gui.addPlayer(players[i]);

@@ -15,8 +15,9 @@ public class Playerlist {
     public Playerlist(int playersNum) {
         this.playersNum = playersNum;
         players = new Player[playersNum];
-        for (int i = 0;i < playersNum;i++)
-            players[i]=new Player(null, colorList[i]);
+        for (int i = 0;i < playersNum;i++) {
+            players[i] = new Player(null, colorList[i]);
+        }
     }
 
     public int getPlayersNum() {
@@ -32,8 +33,14 @@ public class Playerlist {
         return players[i];
     }
 
+    public Color getColor(int i){
+        return colorList[i];
+    }
 
-    //    public void addspiller(int antal){
+    public Color[] getColorList() {
+        return colorList;
+    }
+//    public void addspiller(int antal){
 //        String[i] name = {};
 //        for (int i=0; i<playersNum;i++){
 //            players[i].setName(navne[i]);

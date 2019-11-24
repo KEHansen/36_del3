@@ -13,6 +13,7 @@ public class Player {
 
     public Player(String name, Color color) {
         //todo "Husk at argumentere for at vi har money, som en parameter."
+        this.color = color;
         money=0;
         feltIndex=0;
         haveLost=false;
@@ -36,6 +37,7 @@ public class Player {
     }
 
     public int getMoney() {
+
         return money;
     }
 

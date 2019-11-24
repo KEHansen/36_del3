@@ -26,7 +26,6 @@ public class Controller {
           MatadorGUI gui1 = new MatadorGUI();
 
           GUI gui = new GUI(gui1.createFields(fieldList.getFields()));
-          //GUI gui = new GUI(Board.createBoard());
 
           int playerNum = gui.getUserInteger("How many players are you?", 2,4);
 
@@ -36,7 +35,7 @@ public class Controller {
                 int no = i+1;
               String name = gui.getUserString("set player" + (no) + " " + "name");
                list.getPlayer(i).setName(name);
-              System.out.println(list.getPlayer(i));
+              System.out.println(list.getPlayer(i).getColor());
           }
 
          gui1.startInfo(list.getPlayers());
