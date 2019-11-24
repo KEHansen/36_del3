@@ -67,6 +67,21 @@ public class MatadorGUI {
             streets[0].setCar(players[i], true);
     }
 
+
+
+    public void showGameStatus (Player [] p) {
+        for (int i = 0; i < streets.length; i++) {
+            if (streets[i] != null) {
+                streets[i].removeAllCars();
+            }
+            for(int j = 0; j < p.length; j++){
+                // sæt biler og opdater balancer
+                streets[p[j].getFeltIndex()].setCar(players[j], true);
+                players[j].setBalance(p[j].getMoney());
+            }
+        }
+    }
+
     public void StartText() {gui.showMessage(String.format(Text.TEXT[0]));}
 
     public void init() {

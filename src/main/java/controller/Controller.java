@@ -40,6 +40,7 @@ public class Controller {
 
          gui1.startInfo(list.getPlayers());
 
+          gui1.showGameStatus(list.getPlayers());
 
 
 
