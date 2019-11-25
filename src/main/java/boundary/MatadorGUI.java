@@ -40,13 +40,11 @@ public class MatadorGUI {
         players = new GUI_Player[p.length];
         cars = new GUI_Car[p.length];
         for (int i=0; i<p.length;i++){
-            System.out.println(p[i]);
-            System.out.println(p[i].getColor());
             cars[i] = new GUI_Car(p[i].getColor(), null,type.CAR , pattern.FILL);
             players[i] = new GUI_Player(p[i].getName(),p[i].getMoney(), cars[i]);
-            System.out.println(players[i]);
             gui.addPlayer(players[i]);
         }
+
         // sæt alle biler på start
         for (int i = 0; i < players.length; i++)
             guiFields[0].setCar(players[i], true);

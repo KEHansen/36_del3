@@ -29,7 +29,6 @@ public class Playerlist {
     }
 
     public Player getPlayer(int i){
-
         return players[i];
     }
 
