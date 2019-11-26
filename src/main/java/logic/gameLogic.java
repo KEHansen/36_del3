@@ -57,8 +57,8 @@ public class gameLogic {
         int owner = f.getField(p.getFieldIndex()).getOwnerID();
 
         //Finds the owner for the neighboring fields
-        int neighborfield1 = f.getField(p.getFieldIndex()+1).getOwnerID();
-        int neighborfield2 = f.getField(p.getFieldIndex()-1).getOwnerID();
+        int neighborfield1 = f.getField((p.getFieldIndex()+1)%f.getSize()).getOwnerID();
+        int neighborfield2 = f.getField((p.getFieldIndex()-1)%f.getSize()).getOwnerID();
 
         switch (owner) {
             case 0 :
@@ -82,6 +82,10 @@ public class gameLogic {
 
     public void getOutOfPrison(Player p) {
             p.setMoney(p.getMoney() - 1);
+    }
+
+    public void chance() {
+
     }
 
 }
