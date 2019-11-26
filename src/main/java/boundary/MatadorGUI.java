@@ -22,16 +22,6 @@ public class MatadorGUI {
         this.guiFields= gui.getFields();
     }
 
-    public GUI_Field[] createField(Field[] fields) {
-                for (int i = 0; i < fields.length; i++) {
-                    guiFields[i].setTitle(fields[i].getName());
-                    guiFields[i].setSubText(fields[i].getText());
-                    guiFields[i].setBackGroundColor(fields[i].getColor());
-        }
-        return guiFields;
-    }
-
-
     public void startInfo(Player[] p) {
         players = new GUI_Player[p.length];
         cars = new GUI_Car[p.length];
@@ -48,18 +38,24 @@ public class MatadorGUI {
             guiFields[0].setCar(players[i], true);
     }
 
+    public void showMessage(String text) {
+        gui.showMessage(String.format(text));
+    }
 
 
-    public void showGameStatus (Player [] p) {
+    public void showGameStatus (Player[] p, Field[] f) {
         for (int i = 0; i < guiFields.length; i++) {
             if (guiFields[i] != null) {
                 guiFields[i].removeAllCars();
+                showOwnership(i, p, f);
+
             }
             for (int j = 0; j < p.length; j++) {
                 // sæt biler og opdater balancer
                 guiFields[p[j].getFieldIndex()].setCar(players[j], true);
                 players[j].setBalance(p[j].getMoney());
             }
+
         }
     }
 
@@ -80,6 +76,13 @@ public class MatadorGUI {
 
     public void showRoll(int faceValue) {
         gui.setDie(faceValue);
+    }
+
+    private void showOwnership(int i, Player[] p, Field[] f) {
+        int owner = f[i].getOwnerID();
+        if (owner != 0) {
+
+        }
     }
 
 }

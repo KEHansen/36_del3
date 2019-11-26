@@ -10,6 +10,8 @@ import entity.PlayerList;
 import gui_main.GUI;
 import logic.gameLogic;
 
+import java.awt.*;
+
 
 public class Controller {
 
@@ -19,9 +21,9 @@ public class Controller {
 
          Board board = new Board();
 
-         GUI gui = new GUI(board.createFields(fieldList.getFields()));
+         GUI gui = new GUI(board.createFields(fieldList.getFields()), Color.WHITE);
 
-         MatadorGUI gui1 = new MatadorGUI(gui);
+         MatadorGUI matGUI = new MatadorGUI(gui);
 
          gameLogic logic = new gameLogic();
 
@@ -38,9 +40,9 @@ public class Controller {
              list.getPlayer(i).setMoney(logic.startBalance(playerNum));
          }
 
-         gui1.startInfo(list.getPlayers());
+         matGUI.startInfo(list.getPlayers());
 
-         gui1.showGameStatus(list.getPlayers());
+         matGUI.showGameStatus(list.getPlayers(), fieldList.getFields());
 
          int turn = 0;
          Player p;
@@ -48,15 +50,15 @@ public class Controller {
          while (true) {
              p = list.getPlayer(turn);
              name = p.getName();
-             gui1.waitingForPlayer(name);
-             gui1.waitingForEnter();
+             matGUI.waitingForPlayer(name);
+             matGUI.waitingForEnter();
              d1.roll();
-             gui1.showRoll(d1.getFaceValue());
+             matGUI.showRoll(d1.getFaceValue());
 
              //Game Logic
              logic.movePlayer(d1.getFaceValue(), turn, list, fieldList);
 
-             gui1.showGameStatus(list.getPlayers());
+             matGUI.showGameStatus(list.getPlayers(), fieldList.getFields());
 
 
 
