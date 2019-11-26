@@ -44,7 +44,13 @@ public class Player {
         this.money = money;
     }
 
-    public void addMoney(int diff) { this.money =+ diff;}
+    public void addMoney(int diff) {
+        if (money + diff >= 0) {
+            money = money + diff;
+        } else {
+            haveLost = true;
+        }
+    }
 
     public boolean isHaveLost() {return haveLost;}
 

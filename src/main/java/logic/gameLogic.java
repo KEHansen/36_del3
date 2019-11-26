@@ -1,5 +1,6 @@
 package logic;
 
+import entity.Field;
 import entity.FieldList;
 import entity.Player;
 import entity.PlayerList;
@@ -8,6 +9,8 @@ public class gameLogic {
 
     public gameLogic() {
     }
+
+    public boolean propertyCount = false;
 
     public int startBalance(int playerNum) {
         int balance = 0;
@@ -25,7 +28,7 @@ public class gameLogic {
         p.setFieldIndex((p.getFieldIndex()+faceValue)%f.getSize());
         int actual = p.getFieldIndex();
         if (actual < previous)
-            p.setMoney(p.getMoney()+f.getField(0).getValue());
+            p.addMoney(f.getField(0).getValue());
 
         switch (actual) {
             case 0 :
@@ -45,11 +48,8 @@ public class gameLogic {
                 checkField(turn, pl, f);
                 break;
         }
+
     }
-
-
-
-
 
 
     private void checkField(int turn, PlayerList pl, FieldList f) {
@@ -62,7 +62,7 @@ public class gameLogic {
 
         switch (owner) {
             case 0 :
-                p.setMoney(p.getMoney()-f.getField(p.getFieldIndex()).getValue());
+                p.addMoney(-f.getField(p.getFieldIndex()).getValue());
                 f.getField(p.getFieldIndex()).setOwnerID(turn + 1);
                 break;
             case 1 :
@@ -70,22 +70,54 @@ public class gameLogic {
             case 3 :
             case 4 :
                 if (neighborfield1 == owner || neighborfield2 == owner) {
-                    p.setMoney(p.getMoney()-(f.getField(p.getFieldIndex()).getValue())*2);
-                    pl.getPlayer(owner - 1).setMoney(p.getMoney()+(f.getField(p.getFieldIndex()).getValue())*2);
+                    p.addMoney(-f.getField(p.getFieldIndex()).getValue()*2);
+                    pl.getPlayer(owner - 1).addMoney(f.getField(p.getFieldIndex()).getValue()*2);
                 } else {
-                    p.setMoney(p.getMoney()-f.getField(p.getFieldIndex()).getValue());
-                    pl.getPlayer(owner - 1).setMoney(p.getMoney()+f.getField(p.getFieldIndex()).getValue());
+                    p.addMoney(-f.getField(p.getFieldIndex()).getValue());
+                    pl.getPlayer(owner - 1).addMoney(f.getField(p.getFieldIndex()).getValue());
                 }
                 break;
         }
     }
 
     public void getOutOfPrison(Player p) {
-            p.setMoney(p.getMoney() - 1);
+            p.addMoney(-1);
     }
 
     public void chance() {
 
     }
+
+    public int findWinner(int losingPlayer, FieldList fl, PlayerList pl) {
+        Player[] p = pl.getPlayers();
+        Field[] f = fl.getFields();
+        int[] results = new int[p.length];
+
+        for (int i = 0; i < p.length; i++) {
+            results[i] = p[i].getMoney();
+        }
+        int temp;
+        for (int i = 1; i < results.length; i++) {
+            if (results[i - 1] > results[i]) {
+                temp = results[i - 1];
+                results[i - 1] = results[i];
+                results[i] = temp;
+            }
+        }
+
+        if (results[results.length - 1] == results[results.length - 2]) {
+            propertyCount = true;
+        } else {
+            for (int i = 0; i < p.length; i++) {
+                if (p[i].getMoney() == results[results.length - 1]) {
+                    return i;
+                }
+            }
+        }
+        //todo propertyCount
+        return 0;
+    }
+
+
 
 }

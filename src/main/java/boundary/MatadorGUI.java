@@ -1,6 +1,7 @@
 package boundary;
 
 import entity.Field;
+import entity.PlayerList;
 import gui_fields.GUI_Car;
 import gui_fields.GUI_Field;
 import gui_fields.GUI_Ownable;
@@ -58,12 +59,6 @@ public class MatadorGUI {
             }
 
         }
-    }
-
-    public void StartText() {gui.showMessage(String.format(Text.TEXT[0]));}
-
-    public void init() {
-
     }
 
     public void waitingForPlayer(String name) {
