@@ -34,7 +34,7 @@ public class gameLogic {
                 break;
             case 18 :
                 p.setInPrison(true);
-                p.setFieldIndex((p.getFieldIndex()+faceValue)%f.getSize());
+                p.setFieldIndex(6);
                 break;
             case 3 :
             case 9 :
@@ -56,6 +56,10 @@ public class gameLogic {
         Player p = pl.getPlayer(turn);
         int owner = f.getField(p.getFieldIndex()).getOwnerID();
 
+        //Finds the owner for the neighboring fields
+        int neighborfield1 = f.getField(p.getFieldIndex()+1).getOwnerID();
+        int neighborfield2 = f.getField(p.getFieldIndex()-1).getOwnerID();
+
         switch (owner) {
             case 0 :
                 p.setMoney(p.getMoney()-f.getField(p.getFieldIndex()).getValue());
@@ -65,12 +69,19 @@ public class gameLogic {
             case 2 :
             case 3 :
             case 4 :
-                p.setMoney(p.getMoney()-f.getField(p.getFieldIndex()).getValue());
-                pl.getPlayer(owner - 1).setMoney(p.getMoney()+f.getField(p.getFieldIndex()).getValue());
+                if (neighborfield1 == owner || neighborfield2 == owner) {
+                    p.setMoney(p.getMoney()-(f.getField(p.getFieldIndex()).getValue())*2);
+                    pl.getPlayer(owner - 1).setMoney(p.getMoney()+(f.getField(p.getFieldIndex()).getValue())*2);
+                } else {
+                    p.setMoney(p.getMoney()-f.getField(p.getFieldIndex()).getValue());
+                    pl.getPlayer(owner - 1).setMoney(p.getMoney()+f.getField(p.getFieldIndex()).getValue());
+                }
                 break;
         }
+    }
 
-
+    public void getOutOfPrison(Player p) {
+            p.setMoney(p.getMoney() - 1);
     }
 
 }

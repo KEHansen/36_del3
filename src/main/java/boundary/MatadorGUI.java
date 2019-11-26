@@ -3,6 +3,7 @@ package boundary;
 import entity.Field;
 import gui_fields.GUI_Car;
 import gui_fields.GUI_Field;
+import gui_fields.GUI_Ownable;
 import gui_fields.GUI_Player;
 import gui_main.GUI;
 import entity.Player;
@@ -66,7 +67,7 @@ public class MatadorGUI {
     }
 
     public void waitingForPlayer(String name) {
-        gui.showMessage(String.format(Text.TEXT[0], name));
+        gui.showMessage(String.format(Text.TEXT[2], name));
     }
 
     public void waitingForEnter() {
@@ -81,7 +82,7 @@ public class MatadorGUI {
     private void showOwnership(int i, Player[] p, Field[] f) {
         int owner = f[i].getOwnerID();
         if (owner != 0) {
-
+            ((GUI_Ownable) guiFields[i]).setBorder(p[owner-1].getColor());
         }
     }
 
