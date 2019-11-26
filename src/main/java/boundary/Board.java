@@ -1,7 +1,10 @@
 package boundary;
 import entity.Field;
 import gui_fields.GUI_Field;
+import gui_fields.GUI_Ownable;
 import gui_fields.GUI_Street;
+import gui_main.GUI;
+
 import java.awt.*;
 
 public class Board {
@@ -21,8 +24,9 @@ public class Board {
             guiFields[i].setTitle(fields[i].getName());
             guiFields[i].setSubText(fields[i].getText());
             guiFields[i].setBackGroundColor(fields[i].getColor());
-            guiFields[i] = guiFields[i];
+            guiFields[i].setDescription(fields[i].getName());
         }
         return guiFields;
     }
+
 }
