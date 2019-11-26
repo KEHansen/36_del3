@@ -2,7 +2,7 @@ package entity;
 
 import java.awt.*;
 
-public class Playerlist {
+public class PlayerList {
 
     //ide fra lærers CDIO 2:
 
@@ -12,7 +12,7 @@ public class Playerlist {
 
     private Color[] colorList = {Color.BLACK, Color.YELLOW, Color.BLUE, Color.GREEN};
 
-    public Playerlist(int playersNum) {
+    public PlayerList(int playersNum) {
         this.playersNum = playersNum;
         players = new Player[playersNum];
         for (int i = 0;i < playersNum;i++) {

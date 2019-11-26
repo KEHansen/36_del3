@@ -5,17 +5,16 @@ public class Player {
     private String name;
     private Color color;
     private int money;
-    private int feltIndex;
+    private int fieldIndex;
     private boolean haveLost;
     private boolean throwAgain;
     private boolean inPrison;
-    private Account account;
 
     public Player(String name, Color color) {
         //todo "Husk at argumentere for at vi har money, som en parameter."
         this.color = color;
         money=0;
-        feltIndex=0;
+        fieldIndex = 0;
         haveLost=false;
         throwAgain=false;
         inPrison=false;
@@ -55,9 +54,9 @@ public class Player {
 
     public void setThrowAgain(boolean throwAgain) { this.throwAgain = throwAgain; }
 
-    public int getFeltIndex() { return feltIndex; }
+    public int getFieldIndex() { return fieldIndex; }
 
-    public void setFeltIndex(int feltIndex) { this.feltIndex = feltIndex; }
+    public void setFieldIndex(int fieldIndex) { this.fieldIndex = fieldIndex; }
 
     public boolean isInPrison(){return inPrison;}
 

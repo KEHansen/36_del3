@@ -27,4 +27,5 @@ public class Input {
         return gui.getUserString(s);
     }
 
+
 }
