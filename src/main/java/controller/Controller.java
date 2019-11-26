@@ -66,8 +66,13 @@ public class Controller {
 
              matGUI.showGameStatus(list.getPlayers(), fieldList.getFields());
 
-             turn = (turn + 1) % playerNum;
+             if (p.isHaveLost())
+                 break;
 
+             turn = (turn + 1) % playerNum;
          }
+
+         logic.findWinner(turn, fieldList, list);
+
     }
 }
