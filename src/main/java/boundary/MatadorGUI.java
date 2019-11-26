@@ -1,15 +1,11 @@
 package boundary;
 
 import entity.Field;
-import entity.Playerlist;
 import gui_fields.GUI_Car;
 import gui_fields.GUI_Field;
 import gui_fields.GUI_Player;
-import gui_fields.GUI_Street;
 import gui_main.GUI;
 import entity.Player;
-
-import java.awt.*;
 
 public class MatadorGUI {
 
@@ -59,7 +55,7 @@ public class MatadorGUI {
             }
             for (int j = 0; j < p.length; j++) {
                 // sæt biler og opdater balancer
-                guiFields[p[j].getFeltIndex()].setCar(players[j], true);
+                guiFields[p[j].getFieldIndex()].setCar(players[j], true);
                 players[j].setBalance(p[j].getMoney());
             }
         }
@@ -69,6 +65,19 @@ public class MatadorGUI {
 
     public void init() {
 
+    }
+
+    public void waitingForPlayer(String name) {
+        gui.showMessage(String.format(Text.TEXT[0], name));
+    }
+
+    public void waitingForEnter() {
+        gui.getUserButtonPressed("", "ENTER");
+    }
+
+
+    public void showRoll(int faceValue) {
+        gui.setDie(faceValue);
     }
 
 }

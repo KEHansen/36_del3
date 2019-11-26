@@ -16,6 +16,7 @@ public class Field {
         this.value = value;
         this.text = text;
         this.color = color;
+        ownerID = 0;
     }
 
     public void setNr(int nr) {
