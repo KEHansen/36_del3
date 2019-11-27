@@ -67,9 +67,14 @@ public class Controller {
              matGUI.showGameStatus(list.getPlayers(), fieldList.getFields());
 
              if (logic.landedOnChance) {
-                 matGUI.showMessage(0, name);
+                 matGUI.showMessage(4, name);
                  input = matGUI.guiChance(logic.dragCard());
                  logic.chanceCards(list, turn, input, fieldList);
+                 if (logic.drawanother) {
+                     matGUI.showMessage(5, name);
+                     input = matGUI.guiChance(logic.dragCard());
+                     logic.chanceCards(list, turn, input, fieldList);
+                 }
 
 
              }

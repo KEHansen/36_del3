@@ -19,7 +19,7 @@ public class Text {
                     "Move UP TO 5 fields forward \n", // 3 ChanceCard
                     "Move to an ORANGE field if it's available you get it for free, if not paid the owner rent \n", // 4 ChanceCard
                     // ---------------------- 5 ChanceCard ------------------------------
-                    "Would you like to move 1 field or draw another CHANCECARD?\n", // 6 ChanceCard
+                    "Would you like to move 1 field forward or draw another CHANCECARD?\n", // 6 ChanceCard
                     "you ate to much candy, pay 2 M to the bank\n", // 7 ChanceCard
                     "Move to an ORANGE or a GREEN field if it's available you get it for free, if not paid the owner rent \n", // 8 ChanceCard
                     "Move to an PINK field if it's available you get it for free, if not paid the owner rent \n", // 9 ChanceCard

@@ -11,6 +11,8 @@ public class GameLogic {
 
     public boolean landedOnChance = false;
 
+    public boolean drawanother = false;
+
     private int chance, actual, previous;
 
     public int startBalance(int playerNum) {
@@ -130,10 +132,15 @@ public class GameLogic {
                 }
                 break;
             case 4:
-
+                if (input == 1) {
+                    p.setFieldIndex(p.getFieldIndex() + 1);
+                    checkField(turn, pl, f);
+                } else {
+                    drawanother = true;
+                }
                 break;
             case 5:
-
+                p.addMoney(-2);
                 break;
             case 6:
 
