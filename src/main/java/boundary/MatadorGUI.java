@@ -38,8 +38,16 @@ public class MatadorGUI {
             guiFields[0].setCar(players[i], true);
     }
 
-    public void showMessage(String text) {
-        gui.showMessage(String.format(text));
+    public void showMessage(int no, String name) {
+        gui.showMessage(String.format(Text.TEXT[no], name));
+    }
+
+    public void showMessage(int no, int turn) {
+        gui.showMessage(String.format(Text.TEXT[no], turn));
+    }
+
+    public void showMessageChance(int no) {
+        gui.showMessage(String.format(Text.CHANCETEXT[no]));
     }
 
 
@@ -80,4 +88,24 @@ public class MatadorGUI {
         }
     }
 
+
+    public int guiChance(int chance) {
+        int choice = 0;
+        showMessageChance(chance);
+        switch (chance) {
+            case 2 :
+                choice = gui.getUserInteger(Text.interactiveTEXT[0], 1, 5);
+                break;
+            case 3 :
+                choice = gui.getUserInteger(Text.interactiveTEXT[1], 1, 2);
+                break;
+            case 4 :
+                choice = gui.getUserInteger(Text.interactiveTEXT[2], 1, 2);
+            default:
+                break;
+        }
+
+
+        return choice;
+    }
 }

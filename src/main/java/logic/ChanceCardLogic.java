@@ -7,17 +7,12 @@ import entity.Player;
 import entity.PlayerList;
 
 public class ChanceCardLogic extends gameLogic {
+
     private int chance;
 
-}
-
-    public ChanceCard(int chance) {
-        this.chance = chance;
-    }
-
-
-    public void shuffleCards(){
-       chance = (int) Math.random() * chance) + 1;
+    public int dragCard() {
+        chance = (int) (Math.random() * chance) + 1;
+        return chance;
     }
 
     public void chanceCards(PlayerList pl, int turn) {
@@ -28,6 +23,7 @@ public class ChanceCardLogic extends gameLogic {
             case 1:
                 // ryk til start
                 p.setFieldIndex(0);
+                p.addMoney(2);
                 break;
             case 2:
 
@@ -89,5 +85,6 @@ public class ChanceCardLogic extends gameLogic {
 
     }
 
-
 }
+
+

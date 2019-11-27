@@ -8,6 +8,7 @@ import entity.FieldList;
 import entity.Player;
 import entity.PlayerList;
 import gui_main.GUI;
+import logic.ChanceCardLogic;
 import logic.gameLogic;
 import java.awt.Color;
 
@@ -27,6 +28,8 @@ public class Controller {
          gameLogic logic = new gameLogic();
 
          Dice d1 = new Dice(6);
+
+         ChanceCardLogic ch = new ChanceCardLogic();
 
          int playerNum = gui.getUserInteger(Text.TEXT[0], 2,4);
 
@@ -52,7 +55,7 @@ public class Controller {
              name = p.getName();
 
              if (p.isInPrison()) {
-                 matGUI.showMessage(Text.TEXT[2]);
+                 matGUI.showMessage(3, name);
                  logic.getOutOfPrison(p);
              }
 
@@ -65,6 +68,14 @@ public class Controller {
              logic.movePlayer(d1.getFaceValue(), turn, list, fieldList);
 
              matGUI.showGameStatus(list.getPlayers(), fieldList.getFields());
+
+             if (logic.landedOnChance) {
+                 matGUI.showMessage(0, name);
+                 matGUI.guiChance(ch.dragCard());
+                 ch.chanceCards(list, turn);
+
+                 if ()
+             }
 
              if (p.isHaveLost())
                  break;
