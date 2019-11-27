@@ -101,6 +101,7 @@ public class MatadorGUI {
                 break;
             case 4 :
                 choice = gui.getUserInteger(Text.interactiveTEXT[2], 1, 2);
+                break;
             default:
                 break;
         }

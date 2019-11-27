@@ -1,12 +1,9 @@
 package logic;
 
-import boundary.Text;
-import entity.Field;
-import entity.FieldList;
 import entity.Player;
 import entity.PlayerList;
 
-public class ChanceCardLogic extends gameLogic {
+public class ChanceCardLogic extends hej2 {
 
     private int chance;
 
@@ -15,7 +12,7 @@ public class ChanceCardLogic extends gameLogic {
         return chance;
     }
 
-    public void chanceCards(PlayerList pl, int turn) {
+    public void chanceCards(PlayerList pl, int turn, int input) {
         Player p = pl.getPlayer(turn);
 
         switch (chance) {
