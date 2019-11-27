@@ -184,10 +184,18 @@ public class GameLogic {
                 p.setFreeOutOfJail(true);
                 break;
             case 9:
-
+                previous = p.getFieldIndex();
+                p.setFieldIndex(23);
+                actual = p.getFieldIndex();
+                if (actual < previous)
+                    p.addMoney(f.getField(0).getValue());
+                checkField(turn, pl, f);
                 break;
             case 10:
-
+                for (int i = 0; i < pl.getPlayersNum() ; i++) {
+                    pl.getPlayers()[i].addMoney(-1);
+                }
+                p.addMoney(pl.getPlayersNum());
                 break;
             case 11:
 
