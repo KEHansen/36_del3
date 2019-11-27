@@ -51,9 +51,12 @@ public class Controller {
              p = list.getPlayer(turn);
              name = p.getName();
 
-             if (p.isInPrison()) {
-                 matGUI.showMessage(3, name);
-                 logic.getOutOfPrison(p);
+             if (p.isInJail()) {
+                 if (p.isFreeOutOfJail())
+                     matGUI.showMessage(6, name);
+                 else
+                     matGUI.showMessage(3, name);
+                 logic.getOutOfJail(p);
              }
 
              matGUI.waitingForPlayer(name);
@@ -67,9 +70,14 @@ public class Controller {
              matGUI.showGameStatus(list.getPlayers(), fieldList.getFields());
 
              if (logic.landedOnChance) {
-                 matGUI.showMessage(0, name);
+                 matGUI.showMessage(4, name);
                  input = matGUI.guiChance(logic.dragCard());
                  logic.chanceCards(list, turn, input, fieldList);
+                 if (logic.drawanother) {
+                     matGUI.showMessage(5, name);
+                     input = matGUI.guiChance(logic.dragCard());
+                     logic.chanceCards(list, turn, input, fieldList);
+                 }
 
 
              }

@@ -11,6 +11,8 @@ public class GameLogic {
 
     public boolean landedOnChance = false;
 
+    public boolean drawanother = false;
+
     private int chance, actual, previous;
 
     public int startBalance(int playerNum) {
@@ -37,7 +39,7 @@ public class GameLogic {
             case 12 :
                 break;
             case 18 :
-                p.setInPrison(true);
+                p.setInJail(true);
                 p.setFieldIndex(6);
                 break;
             case 3 :
@@ -82,8 +84,12 @@ public class GameLogic {
         }
     }
 
-    public void getOutOfPrison(Player p) {
-        p.addMoney(-1);
+    public void getOutOfJail(Player p) {
+        if (p.isFreeOutOfJail())
+            p.setFreeOutOfJail(false);
+        else
+            p.addMoney(-1);
+        p.setInJail(false);
     }
 
     public void chance() {
@@ -130,19 +136,52 @@ public class GameLogic {
                 }
                 break;
             case 4:
-
+                if (input == 1) {
+                    p.setFieldIndex(p.getFieldIndex() + 1);
+                    checkField(turn, pl, f);
+                } else {
+                    drawanother = true;
+                }
                 break;
             case 5:
-
+                p.addMoney(-2);
                 break;
             case 6:
-
+                if (input == 1) {
+                    previous = p.getFieldIndex();
+                    p.setFieldIndex(20);
+                    actual = p.getFieldIndex();
+                    if (actual < previous)
+                        p.addMoney(f.getField(0).getValue());
+                    checkField(turn, pl, f);
+                } else {
+                    previous = p.getFieldIndex();
+                    p.setFieldIndex(21);
+                    actual = p.getFieldIndex();
+                    if (actual < previous)
+                        p.addMoney(f.getField(0).getValue());
+                    checkField(turn, pl, f);
+                }
                 break;
             case 7:
-
+                if (input == 1) {
+                    previous = p.getFieldIndex();
+                    p.setFieldIndex(5);
+                    actual = p.getFieldIndex();
+                    if (actual < previous)
+                        p.addMoney(f.getField(0).getValue());
+                    checkField(turn, pl, f);
+                } else {
+                    previous = p.getFieldIndex();
+                    p.setFieldIndex(6);
+                    actual = p.getFieldIndex();
+                    if (actual < previous)
+                        p.addMoney(f.getField(0).getValue());
+                    checkField(turn, pl, f);
+                }
                 break;
             case 8:
-
+                p.setFreeOutOfJail(true);
                 break;
             case 9:
 
