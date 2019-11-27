@@ -46,9 +46,5 @@ public class Text {
                     "Do you wish to move to (1) ARCADE or (2) CINEMA? \n", // 14 ChanceCard
                     "Do you wish to move to (1) TOY STORE or (2) PET STORE? \n", // 16 ChanceCard
                     "Do you wish to move to (1) BURGER JOINT or (2) PIZZA BAR? \n", // 17 ChanceCard
-                    // ---------------------- 1 ChanceCard ------------------------------
-                    // ---------------------- 5 ChanceCard ------------------------------
-                    // ---------------------- 12 ChanceCard ------------------------------
-                    // ---------------------- 13 ChanceCard ------------------------------
             };
 }

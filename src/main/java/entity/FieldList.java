@@ -36,7 +36,7 @@ public class FieldList {
         fields[16] = new  Field(17, "TOY STORE", 3, "3M", Color.YELLOW);
         fields[17] = new  Field(18, "PET STORE", 3, "3M", Color.YELLOW);
         //--------------------------------------------------------------------------------------
-        fields[18] = new  Field(19, "GO TO JAIL", 0, "GO TO JAIL", Color.WHITE);  //** REMEBER ** <----------------------------------------------------------
+        fields[18] = new  Field(19, "GO TO JAIL", 0, "GO TO JAIL", Color.WHITE);
         //--------------------------------------------------------------------------------------
         fields[19] = new  Field(20, "BOWLING ALLEY", 4, "4M", Color.GREEN);
         fields[20] = new  Field(21, "ZOO", 4, "4M", Color.GREEN);
