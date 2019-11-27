@@ -1,15 +1,33 @@
 package logic;
 
-public class ChanceCardLogic {
+import boundary.Text;
+import entity.Field;
+import entity.FieldList;
+import entity.Player;
+import entity.PlayerList;
+
+public class ChanceCardLogic extends gameLogic {
     private int chance;
 
+}
 
-    public void chanceCards() {
+    public ChanceCard(int chance) {
+        this.chance = chance;
+    }
 
-        switch(chance) {
+
+    public void shuffleCards(){
+       chance = (int) Math.random() * chance) + 1;
+    }
+
+    public void chanceCards(PlayerList pl, int turn) {
+        Player p = pl.getPlayer(turn);
+
+        switch (chance) {
 
             case 1:
-
+                // ryk til start
+                p.setFieldIndex(0);
                 break;
             case 2:
 
@@ -70,5 +88,6 @@ public class ChanceCardLogic {
         }
 
     }
+
 
 }

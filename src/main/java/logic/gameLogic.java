@@ -41,6 +41,7 @@ public class gameLogic {
                 break;
             case 3 :
             case 9 :
+                ChanceCardLogic.chanceCards()
             case 15 :
             case 21 :
                 break; //Chancekort
