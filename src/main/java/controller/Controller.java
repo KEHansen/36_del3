@@ -8,7 +8,6 @@ import entity.FieldList;
 import entity.Player;
 import entity.PlayerList;
 import gui_main.GUI;
-import logic.ChanceCardLogic;
 import logic.GameLogic;
 import java.awt.Color;
 
@@ -28,8 +27,6 @@ public class Controller {
          GameLogic logic = new GameLogic();
 
          Dice d1 = new Dice(6);
-
-         ChanceCardLogic ch = new ChanceCardLogic();
 
          int playerNum = gui.getUserInteger(Text.TEXT[0], 2,4);
          int input;
@@ -71,8 +68,8 @@ public class Controller {
 
              if (logic.landedOnChance) {
                  matGUI.showMessage(0, name);
-                 input = matGUI.guiChance(ch.dragCard());
-                 ch.chanceCards(list, turn, input);
+                 input = matGUI.guiChance(logic.dragCard());
+                 logic.chanceCards(list, turn, input, fieldList);
 
 
              }

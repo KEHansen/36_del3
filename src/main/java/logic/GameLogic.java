@@ -11,6 +11,8 @@ public class GameLogic {
 
     public boolean landedOnChance = false;
 
+    private int chance, actual, previous;
+
     public int startBalance(int playerNum) {
         int balance = 0;
         switch (playerNum) {
@@ -23,9 +25,9 @@ public class GameLogic {
 
     public void movePlayer(int faceValue, int turn, PlayerList pl, FieldList f) {
         Player p = pl.getPlayer(turn);
-        int previous = p.getFieldIndex();
+        previous = p.getFieldIndex();
         p.setFieldIndex((p.getFieldIndex()+faceValue)%f.getSize());
-        int actual = p.getFieldIndex();
+        actual = p.getFieldIndex();
         if (actual < previous)
             p.addMoney(f.getField(0).getValue());
 
@@ -88,6 +90,100 @@ public class GameLogic {
 
     }
 
+
+
+
+
+    public int dragCard() {
+        chance = (int) (Math.random() * chance) + 1;
+        return chance;
+    }
+
+    public void chanceCards(PlayerList pl, int turn, int input, FieldList f) {
+        Player p = pl.getPlayer(turn);
+
+        switch (chance) {
+
+            case 1:
+                // ryk til start
+                p.setFieldIndex(0);
+                p.addMoney(2);
+                break;
+            case 2:
+                movePlayer(input, turn, pl, f);
+                break;
+            case 3:
+                if (input == 1) {
+                    previous = p.getFieldIndex();
+                    p.setFieldIndex(10);
+                    actual = p.getFieldIndex();
+                    if (actual < previous)
+                        p.addMoney(f.getField(0).getValue());
+                    checkField(turn, pl, f);
+                } else {
+                    previous = p.getFieldIndex();
+                    p.setFieldIndex(11);
+                    actual = p.getFieldIndex();
+                    if (actual < previous)
+                        p.addMoney(f.getField(0).getValue());
+                    checkField(turn, pl, f);
+                }
+                break;
+            case 4:
+
+                break;
+            case 5:
+
+                break;
+            case 6:
+
+                break;
+            case 7:
+
+                break;
+            case 8:
+
+                break;
+            case 9:
+
+                break;
+            case 10:
+
+                break;
+            case 11:
+
+                break;
+            case 12:
+
+                break;
+            case 13:
+
+                break;
+            case 14:
+
+                break;
+            case 15:
+
+                break;
+            case 16:
+
+                break;
+            case 17:
+
+                break;
+            case 18:
+
+                break;
+            case 19:
+
+                break;
+            case 20:
+
+        }
+
+    }
+
+
     public int findWinner(int losingPlayer, FieldList fl, PlayerList pl) {
         Player[] p = pl.getPlayers();
         Field[] f = fl.getFields();
@@ -117,7 +213,4 @@ public class GameLogic {
         //todo propertyCount
         return 0;
     }
-
-
-
 }
