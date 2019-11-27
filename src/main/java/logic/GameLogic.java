@@ -5,10 +5,7 @@ import entity.FieldList;
 import entity.Player;
 import entity.PlayerList;
 
-public class gameLogic {
-
-    public gameLogic() {
-    }
+public class GameLogic {
 
     public boolean propertyCount = false;
 

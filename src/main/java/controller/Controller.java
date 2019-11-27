@@ -8,7 +8,7 @@ import entity.FieldList;
 import entity.Player;
 import entity.PlayerList;
 import gui_main.GUI;
-import logic.gameLogic;
+import logic.GameLogic;
 import java.awt.Color;
 
 
@@ -24,7 +24,7 @@ public class Controller {
 
          MatadorGUI matGUI = new MatadorGUI(gui);
 
-         gameLogic logic = new gameLogic();
+         GameLogic logic = new GameLogic();
 
          Dice d1 = new Dice(6);
 
