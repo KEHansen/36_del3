@@ -28,20 +28,26 @@ public class MatadorGUI {
         players = new GUI_Player[p.length];
         cars = new GUI_Car[p.length];
         for (int i=0; i<p.length;i++){
-            System.out.println(p[i]);
-            System.out.println(p[i].getColor());
             cars[i] = new GUI_Car(p[i].getColor(), null,type.CAR , pattern.FILL);
             players[i] = new GUI_Player(p[i].getName(),p[i].getMoney(), cars[i]);
-            System.out.println(players[i]);
             gui.addPlayer(players[i]);
         }
+
         // sæt alle biler på start
         for (int i = 0; i < players.length; i++)
             guiFields[0].setCar(players[i], true);
     }
 
-    public void showMessage(String text) {
-        gui.showMessage(String.format(text));
+    public void showMessage(int no, String name) {
+        gui.showMessage(String.format(Text.TEXT[no], name));
+    }
+
+    public void showMessage(int no, int turn) {
+        gui.showMessage(String.format(Text.TEXT[no], turn));
+    }
+
+    public void showMessageChance(int no) {
+        gui.showMessage(String.format(Text.CHANCETEXT[no]));
     }
 
 
@@ -72,6 +78,7 @@ public class MatadorGUI {
 
     public void showRoll(int faceValue) {
         gui.setDie(faceValue);
+        
     }
 
     private void showOwnership(int i, Player[] p, Field[] f) {
@@ -81,4 +88,24 @@ public class MatadorGUI {
         }
     }
 
+
+    public int guiChance(int chance) {
+        int choice = 0;
+        showMessageChance(chance);
+        switch (chance) {
+            case 2 :
+                choice = gui.getUserInteger(Text.interactiveTEXT[0], 1, 5);
+                break;
+            case 3 :
+                choice = gui.getUserInteger(Text.interactiveTEXT[1], 1, 2);
+                break;
+            case 4 :
+                choice = gui.getUserInteger(Text.interactiveTEXT[2], 1, 2);
+            default:
+                break;
+        }
+
+
+        return choice;
+    }
 }

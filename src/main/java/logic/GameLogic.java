@@ -5,9 +5,11 @@ import entity.FieldList;
 import entity.Player;
 import entity.PlayerList;
 
-public class GameLogic {
+public class gameLogic {
 
     public boolean propertyCount = false;
+
+    public boolean landedOnChance = false;
 
     public int startBalance(int playerNum) {
         int balance = 0;
@@ -40,6 +42,7 @@ public class GameLogic {
             case 9 :
             case 15 :
             case 21 :
+                landedOnChance = true;
                 break; //Chancekort
             default:
                 checkField(turn, pl, f);

@@ -9,9 +9,6 @@ import java.awt.*;
 
 public class Board {
 
-    public Board() {
-    }
-
     public GUI_Field[] createFields(Field[] fields) {
 
         GUI_Field[] guiFields = new GUI_Field[fields.length];
