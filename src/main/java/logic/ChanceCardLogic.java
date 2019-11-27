@@ -15,7 +15,7 @@ public class ChanceCardLogic extends gameLogic {
         return chance;
     }
 
-    public void chanceCards(PlayerList pl, int turn) {
+    public void chanceCards(PlayerList pl, int turn, int input) {
         Player p = pl.getPlayer(turn);
 
         switch (chance) {

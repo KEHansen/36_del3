@@ -32,7 +32,7 @@ public class Controller {
          ChanceCardLogic ch = new ChanceCardLogic();
 
          int playerNum = gui.getUserInteger(Text.TEXT[0], 2,4);
-
+         int input;
          PlayerList list = new PlayerList(playerNum);
 
          for (int i = 0; i < list.getPlayersNum(); i++) {
@@ -71,10 +71,10 @@ public class Controller {
 
              if (logic.landedOnChance) {
                  matGUI.showMessage(0, name);
-                 matGUI.guiChance(ch.dragCard());
-                 ch.chanceCards(list, turn);
+                 input = matGUI.guiChance(ch.dragCard());
+                 ch.chanceCards(list, turn, input);
 
-                 if ()
+
              }
 
              if (p.isHaveLost())
