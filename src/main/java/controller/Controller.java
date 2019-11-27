@@ -51,9 +51,12 @@ public class Controller {
              p = list.getPlayer(turn);
              name = p.getName();
 
-             if (p.isInPrison()) {
-                 matGUI.showMessage(3, name);
-                 logic.getOutOfPrison(p);
+             if (p.isInJail()) {
+                 if (p.isFreeOutOfJail())
+                     matGUI.showMessage(6, name);
+                 else
+                     matGUI.showMessage(3, name);
+                 logic.getOutOfJail(p);
              }
 
              matGUI.waitingForPlayer(name);

@@ -8,7 +8,8 @@ public class Player {
     private int fieldIndex;
     private boolean haveLost;
     private boolean throwAgain;
-    private boolean inPrison;
+    private boolean inJail;
+    private boolean freeOutOfJail;
 
     public Player(String name, Color color) {
         //todo "Husk at argumentere for at vi har money, som en parameter."
@@ -17,8 +18,8 @@ public class Player {
         fieldIndex = 0;
         haveLost=false;
         throwAgain=false;
-        inPrison=false;
-
+        inJail =false;
+        freeOutOfJail=false;
     }
 
     public String getName() { return name; }
@@ -64,9 +65,13 @@ public class Player {
 
     public void setFieldIndex(int fieldIndex) { this.fieldIndex = fieldIndex; }
 
-    public boolean isInPrison(){return inPrison;}
+    public boolean isInJail(){return inJail;}
 
-    public  boolean setInPrison(boolean inPrison){return haveLost;}
+    public void setInJail(boolean inJail) { this.inJail = inJail; }
+
+    public boolean isFreeOutOfJail() { return freeOutOfJail; }
+
+    public void setFreeOutOfJail(boolean freeOutOfJail) { this.freeOutOfJail = freeOutOfJail; }
 
     @Override
     public String toString() { return name; }
