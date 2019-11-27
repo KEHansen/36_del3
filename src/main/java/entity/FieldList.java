@@ -19,7 +19,7 @@ public class FieldList {
         fields[6] = new  Field(7, "JAIL", 0, "VISITING", Color.WHITE);
         //--------------------------------------------------------------------------------------
         fields[7] = new  Field(8, "MUSEUM", 2, "2M", Color.MAGENTA);
-        fields[8] = new  Field(9, "LIRBARY", 2, "2M", Color.MAGENTA);
+        fields[8] = new  Field(9, "LIBRARY", 2, "2M", Color.MAGENTA);
         //--------------------------------------------------------------------------------------
         fields[9] = new  Field(10, "CHANCE", 0, "CHANCE", Color.WHITE);
         //--------------------------------------------------------------------------------------
@@ -29,7 +29,7 @@ public class FieldList {
         fields[12] = new  Field(13, "FREE PARKING", 0, "FREE PARKING", Color.WHITE);
         //--------------------------------------------------------------------------------------
         fields[13] = new  Field(14, "ARCADE", 3, "3M", Color.RED);
-        fields[14] = new  Field(15, "CHINEMA", 3, "3M", Color.RED);
+        fields[14] = new  Field(15, "CINEMA", 3, "3M", Color.RED);
         //--------------------------------------------------------------------------------------
         fields[15] = new  Field(16, "CHANCE", 0, "CHANCE", Color.WHITE);
         //--------------------------------------------------------------------------------------
