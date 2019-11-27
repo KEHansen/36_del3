@@ -1,12 +1,9 @@
 package logic;
 
-import boundary.Text;
-import entity.Field;
-import entity.FieldList;
 import entity.Player;
 import entity.PlayerList;
 
-public class ChanceCardLogic extends gameLogic {
+public class ChanceCardLogic extends hej2 {
 
     private int chance;
 

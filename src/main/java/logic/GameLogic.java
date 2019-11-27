@@ -5,7 +5,7 @@ import entity.FieldList;
 import entity.Player;
 import entity.PlayerList;
 
-public class gameLogic {
+public class GameLogic {
 
     public boolean propertyCount = false;
 
@@ -81,7 +81,7 @@ public class gameLogic {
     }
 
     public void getOutOfPrison(Player p) {
-            p.addMoney(-1);
+        p.addMoney(-1);
     }
 
     public void chance() {
