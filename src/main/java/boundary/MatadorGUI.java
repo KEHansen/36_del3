@@ -70,6 +70,7 @@ public class MatadorGUI {
 
     public void showRoll(int faceValue) {
         gui.setDie(faceValue);
+        
     }
 
     private void showOwnership(int i, Player[] p, Field[] f) {

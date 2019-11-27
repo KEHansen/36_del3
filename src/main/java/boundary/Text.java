@@ -3,7 +3,7 @@ package boundary;
 public class Text {
     public final static String[] TEXT =
     {
-            "How many players are you? \n",
+            "How many players are you? (2-4 player) \n",
             "Set player %d's name \n",
             "Waiting for player %s. Click ENTER to continue \n",
             "Player %s has to pay 1M in order to get out of prison. \n",
