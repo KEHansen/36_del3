@@ -15,6 +15,8 @@ public class GameLogic {
 
     private int chance, actual, previous;
 
+    private final int amountOfCards = 13;
+
     public int startBalance(int playerNum) {
         int balance = 0;
         switch (playerNum) {
@@ -101,12 +103,13 @@ public class GameLogic {
 
 
     public int dragCard() {
-        chance = (int) (Math.random() * chance) + 1;
+        chance = (int) (Math.random() * amountOfCards) + 1;
         return chance;
     }
 
     public void chanceCards(PlayerList pl, int turn, int input, FieldList f) {
         Player p = pl.getPlayer(turn);
+        landedOnChance = false;
 
         switch (chance) {
 
@@ -149,14 +152,14 @@ public class GameLogic {
             case 6:
                 if (input == 1) {
                     previous = p.getFieldIndex();
-                    p.setFieldIndex(20);
+                    p.setFieldIndex(19);
                     actual = p.getFieldIndex();
                     if (actual < previous)
                         p.addMoney(f.getField(0).getValue());
                     checkField(turn, pl, f);
                 } else {
                     previous = p.getFieldIndex();
-                    p.setFieldIndex(21);
+                    p.setFieldIndex(20);
                     actual = p.getFieldIndex();
                     if (actual < previous)
                         p.addMoney(f.getField(0).getValue());
@@ -166,14 +169,14 @@ public class GameLogic {
             case 7:
                 if (input == 1) {
                     previous = p.getFieldIndex();
-                    p.setFieldIndex(5);
+                    p.setFieldIndex(4);
                     actual = p.getFieldIndex();
                     if (actual < previous)
                         p.addMoney(f.getField(0).getValue());
                     checkField(turn, pl, f);
                 } else {
                     previous = p.getFieldIndex();
-                    p.setFieldIndex(6);
+                    p.setFieldIndex(5);
                     actual = p.getFieldIndex();
                     if (actual < previous)
                         p.addMoney(f.getField(0).getValue());
@@ -198,13 +201,41 @@ public class GameLogic {
                 p.addMoney(pl.getPlayersNum());
                 break;
             case 11:
-
+                if (input == 1) {
+                    previous = p.getFieldIndex();
+                    p.setFieldIndex(7);
+                    actual = p.getFieldIndex();
+                    if (actual < previous)
+                        p.addMoney(f.getField(0).getValue());
+                    checkField(turn, pl, f);
+                } else {
+                    previous = p.getFieldIndex();
+                    p.setFieldIndex(8);
+                    actual = p.getFieldIndex();
+                    if (actual < previous)
+                        p.addMoney(f.getField(0).getValue());
+                    checkField(turn, pl, f);
+                }
                 break;
             case 12:
-
+                if (input == 1) {
+                    previous = p.getFieldIndex();
+                    p.setFieldIndex(22);
+                    actual = p.getFieldIndex();
+                    if (actual < previous)
+                        p.addMoney(f.getField(0).getValue());
+                    checkField(turn, pl, f);
+                } else {
+                    previous = p.getFieldIndex();
+                    p.setFieldIndex(23);
+                    actual = p.getFieldIndex();
+                    if (actual < previous)
+                        p.addMoney(f.getField(0).getValue());
+                    checkField(turn, pl, f);
+                }
                 break;
             case 13:
-
+                p.addMoney(2);
                 break;
             case 14:
 
@@ -260,4 +291,14 @@ public class GameLogic {
         //todo propertyCount
         return 0;
     }
+
+    public boolean haveAnyoneLost(PlayerList pl) {
+        boolean haveAnyoneLost = false;
+        for (int i = 0; i <pl.getPlayersNum() ; i++) {
+            if (pl.getPlayer(i).isHaveLost())
+                haveAnyoneLost = true;
+        }
+        return haveAnyoneLost;
+    }
+
 }

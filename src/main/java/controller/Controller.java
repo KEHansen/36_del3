@@ -61,7 +61,7 @@ public class Controller {
 
              matGUI.waitingForPlayer(name);
              matGUI.waitingForEnter();
-             d1.testRoll();
+             d1.roll();
              matGUI.showRoll(d1.getFaceValue());
 
              //Game Logic
@@ -78,11 +78,11 @@ public class Controller {
                      input = matGUI.guiChance(logic.dragCard());
                      logic.chanceCards(list, turn, input, fieldList);
                  }
-
-
              }
 
-             if (p.isHaveLost())
+             matGUI.showGameStatus(list.getPlayers(), fieldList.getFields());
+
+             if (logic.haveAnyoneLost(list))
                  break;
 
              turn = (turn + 1) % playerNum;

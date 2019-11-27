@@ -102,6 +102,18 @@ public class MatadorGUI {
             case 4 :
                 choice = gui.getUserInteger(Text.interactiveTEXT[2], 1, 2);
                 break;
+            case 6 :
+                choice = gui.getUserInteger(Text.interactiveTEXT[3], 1, 2);
+                break;
+            case 7 :
+                choice = gui.getUserInteger(Text.interactiveTEXT[4], 1, 2);
+                break;
+            case 11 :
+                choice = gui.getUserInteger(Text.interactiveTEXT[5], 1, 2);
+                break;
+            case 12 :
+                choice = gui.getUserInteger(Text.interactiveTEXT[6], 1, 2);
+                break;
             default:
                 break;
         }

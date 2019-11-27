@@ -50,6 +50,7 @@ public class Player {
             money = money + diff;
         } else {
             haveLost = true;
+            money = money + diff;
         }
     }
 
