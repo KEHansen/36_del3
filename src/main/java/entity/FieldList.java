@@ -53,7 +53,7 @@ public class FieldList {
     }
 
     public Field getField(int nr) {
-        return fields[nr];
+        return fields   [nr];
     }
 
     public String[][] getFieldText() {
