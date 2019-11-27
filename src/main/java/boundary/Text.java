@@ -34,6 +34,7 @@ public class Text {
 
 
 
+
 };
 
     public final static String[] interactiveTEXT =
@@ -43,14 +44,14 @@ public class Text {
                     "Do you wish to move to (1) SKATER PARK or (2) SWIMMING POOL? \n", // 4 ChanceCard
                     // ---------------------- 5 ChanceCard ------------------------------
                     "Do you wish to (1) move 1 field or (2) draw another \n", // 6 ChanceCard
-                    "Do you wish to move to (1) ORANGE or (2) GREEN? \n", // 6.1 ChanceCard
-                    "you Chose ORANGE, which would you like to move to? (1) SKATER PARK or (2) SWIMMING POOL? \n", // 6.2 ChanceCard
-                    "you Chose GREEN, which would you like to move to? (1) BOWLING ALLEY or (2) ZOO? \n", // 6.3 ChanceCard
+                    "Do you wish to move to (1) ORANGE or (2) GREEN? \n", // 8.1 ChanceCard
+                    "you Chose ORANGE, which would you like to move to? (1) SKATER PARK or (2) SWIMMING POOL? \n", // 8.2 ChanceCard
+                    "you Chose GREEN, which would you like to move to? (1) BOWLING ALLEY or (2) ZOO? \n", // 8.3 ChanceCard
                     "Do you wish to move to (1) CANDY SHOP or (2) IS-CREAM SHOP? \n", // 7 ChanceCard
                     // ---------------------- 12 ChanceCard ------------------------------
                     // ---------------------- 13 ChanceCard ------------------------------
-                    "you Chose MAGENTA, which would you like to move to? (1) MUSEUM or (2) LIBRARY? \n", // 6.2 ChanceCard
-                    "you Chose CYAN, which would you like to move to? (1) WATER PARK or (2) SEAFRONT? \n", // 6.3 ChanceCard
+                    "you Chose MAGENTA, which would you like to move to? (1) MUSEUM or (2) LIBRARY? \n", // 15.2 ChanceCard
+                    "you Chose CYAN, which would you like to move to? (1) WATER PARK or (2) SEAFRONT? \n", // 15.3 ChanceCard
 
             };
 }
