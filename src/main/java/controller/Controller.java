@@ -54,8 +54,9 @@ public class Controller {
              if (p.isInJail()) {
                  if (p.isFreeOutOfJail())
                      matGUI.showMessage(6, name);
-                 else
+                 else {
                      matGUI.showMessage(3, name);
+                 }
                  logic.getOutOfJail(p);
              }
 
@@ -68,6 +69,16 @@ public class Controller {
              logic.movePlayer(d1.getFaceValue(), turn, list, fieldList);
 
              matGUI.showGameStatus(list.getPlayers(), fieldList.getFields());
+
+             if (p.isBuying()) {
+                 matGUI.showMessageBuying(name, fieldList.getField(p.getFieldIndex()).getName());
+             } else if (turn + 1 == fieldList.getField(p.getFieldIndex()).getOwnerID()) {
+                 matGUI.showMessageOwnedByPlayer(name, fieldList.getField(p.getFieldIndex()).getName());
+             } else if (p.isInJail()) {
+                 matGUI.showMessage(8, name);
+             } else {
+                 matGUI.showMessagePaying(name, fieldList.getField(p.getFieldIndex()).getName(), list.getPlayer(fieldList.getField(p.getFieldIndex()).getOwnerID()-1).getName());
+             }
 
              if (logic.landedOnChance) {
                  matGUI.showMessage(4, name);
@@ -82,13 +93,16 @@ public class Controller {
 
              matGUI.showGameStatus(list.getPlayers(), fieldList.getFields());
 
-             if (logic.haveAnyoneLost(list))
+             p.setBuying(false);
+
+             if (logic.haveAnyoneLost(list)) {
                  break;
+             }
 
              turn = (turn + 1) % playerNum;
          }
 
          winner = logic.findWinner(turn, fieldList, list);
          matGUI.showMessage(7, list.getPlayer(winner).getName());
-    }
+     }
 }

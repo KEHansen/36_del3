@@ -42,8 +42,16 @@ public class MatadorGUI {
         gui.showMessage(String.format(Text.TEXT[no], name));
     }
 
-    public void showMessage(int no, int turn) {
-        gui.showMessage(String.format(Text.TEXT[no], turn));
+    public void showMessageBuying(String name, String field) {
+        gui.showMessage(String.format(Text.BUYINGTEXT[0], name, field));
+    }
+
+    public void showMessagePaying(String name, String field, String owner) {
+        gui.showMessage(String.format(Text.PAYINGTEXT[0], name, field, owner));
+    }
+
+    public void showMessageOwnedByPlayer(String name, String field) {
+        gui.showMessage(String.format(Text.OWNERTEXT[0], name, field));
     }
 
     public void showMessageChance(int no) {

@@ -10,6 +10,7 @@ public class Player {
     private boolean throwAgain;
     private boolean inJail;
     private boolean freeOutOfJail;
+    private boolean buying;
 
     public Player(String name, Color color) {
         //todo "Husk at argumentere for at vi har money, som en parameter."
@@ -20,6 +21,7 @@ public class Player {
         throwAgain=false;
         inJail =false;
         freeOutOfJail=false;
+        buying=false;
     }
 
     public String getName() { return name; }
@@ -73,6 +75,10 @@ public class Player {
     public boolean isFreeOutOfJail() { return freeOutOfJail; }
 
     public void setFreeOutOfJail(boolean freeOutOfJail) { this.freeOutOfJail = freeOutOfJail; }
+
+    public boolean isBuying() { return buying; }
+
+    public void setBuying(boolean buying) { this.buying = buying; }
 
     @Override
     public String toString() { return name; }

@@ -66,17 +66,18 @@ public class GameLogic {
             case 0 :
                 p.addMoney(-f.getField(p.getFieldIndex()).getValue());
                 f.getField(p.getFieldIndex()).setOwnerID(turn + 1);
+                p.setBuying(true);
                 break;
             case 1 :
             case 2 :
             case 3 :
             case 4 :
                 if (neighborfield1 == owner || neighborfield2 == owner) {
-                    p.addMoney(-f.getField(p.getFieldIndex()).getValue()*2);
                     pl.getPlayer(owner - 1).addMoney(f.getField(p.getFieldIndex()).getValue()*2);
+                    p.addMoney(-f.getField(p.getFieldIndex()).getValue()*2);
                 } else {
-                    p.addMoney(-f.getField(p.getFieldIndex()).getValue());
                     pl.getPlayer(owner - 1).addMoney(f.getField(p.getFieldIndex()).getValue());
+                    p.addMoney(-f.getField(p.getFieldIndex()).getValue());
                 }
                 break;
         }
@@ -149,10 +150,10 @@ public class GameLogic {
                 checkField(turn, pl, f);
                 break;
             case 10:
+                p.addMoney(pl.getPlayersNum());
                 for (int i = 0; i < pl.getPlayersNum() ; i++) {
                     pl.getPlayers()[i].addMoney(-1);
                 }
-                p.addMoney(pl.getPlayersNum());
                 break;
             case 11:
                 choseFieldLogic(pl, turn, input, f, p, 7, 8);
