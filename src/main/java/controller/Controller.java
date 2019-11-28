@@ -76,7 +76,7 @@ public class Controller {
                  matGUI.showMessageOwnedByPlayer(name, fieldList.getField(p.getFieldIndex()).getName());
              } else if (p.isInJail()) {
                  matGUI.showMessage(8, name);
-             } else {
+             } else if (fieldList.getField(p.getFieldIndex()).getOwnerID() != 0) {
                  matGUI.showMessagePaying(name, fieldList.getField(p.getFieldIndex()).getName(), list.getPlayer(fieldList.getField(p.getFieldIndex()).getOwnerID()-1).getName());
              }
 
