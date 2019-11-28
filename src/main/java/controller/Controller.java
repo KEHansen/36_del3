@@ -29,7 +29,7 @@ public class Controller {
          Dice d1 = new Dice(6);
 
          int playerNum = gui.getUserInteger(Text.TEXT[0], 2,4);
-         int input;
+         int input, winner;
          PlayerList list = new PlayerList(playerNum);
 
          for (int i = 0; i < list.getPlayersNum(); i++) {
@@ -88,7 +88,7 @@ public class Controller {
              turn = (turn + 1) % playerNum;
          }
 
-         logic.findWinner(turn, fieldList, list);
-
+         winner = logic.findWinner(turn, fieldList, list);
+         matGUI.showMessage(7, list.getPlayer(winner).getName());
     }
 }

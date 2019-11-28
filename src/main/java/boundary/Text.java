@@ -3,13 +3,14 @@ package boundary;
 public class Text {
     public final static String[] TEXT =
             {
-                    "How many players are you? (2-4 player) \n",
-                    "Set player %d's name \n",
+                    "How many players are you? (2-4 player). \n", // 0
+                    "Set player %d's name. \n",
                     "Waiting for %s. Click ENTER to continue \n",
                     "%s has to pay 1M in order to get out of prison. \n",
                     "%s landed on chance and has to draw a chance card \n",
-                    "%s chose to draw another card \n",
+                    "%s chose to draw another card \n", // 5
                     "%s used a get-free-out-jail card\n",
+                    "%s had the most money and have won the game \n"
             };
 
     public final static String[] CHANCETEXT =

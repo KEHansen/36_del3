@@ -7,15 +7,11 @@ import entity.PlayerList;
 
 public class GameLogic {
 
-    public boolean propertyCount = false;
-
     public boolean landedOnChance = false;
 
     public boolean drawanother = false;
 
     private int chance, actual, previous;
-
-    private final int amountOfCards = 13;
 
     public int startBalance(int playerNum) {
         int balance = 0;
@@ -103,6 +99,7 @@ public class GameLogic {
 
 
     public int dragCard() {
+        int amountOfCards = 17;
         chance = (int) (Math.random() * amountOfCards) + 1;
         return chance;
     }
@@ -112,7 +109,6 @@ public class GameLogic {
         landedOnChance = false;
 
         switch (chance) {
-
             case 1:
                 // ryk til start
                 p.setFieldIndex(0);
@@ -122,21 +118,7 @@ public class GameLogic {
                 movePlayer(input, turn, pl, f);
                 break;
             case 3:
-                if (input == 1) {
-                    previous = p.getFieldIndex();
-                    p.setFieldIndex(10);
-                    actual = p.getFieldIndex();
-                    if (actual < previous)
-                        p.addMoney(f.getField(0).getValue());
-                    checkField(turn, pl, f);
-                } else {
-                    previous = p.getFieldIndex();
-                    p.setFieldIndex(11);
-                    actual = p.getFieldIndex();
-                    if (actual < previous)
-                        p.addMoney(f.getField(0).getValue());
-                    checkField(turn, pl, f);
-                }
+                choseFieldLogic(pl, turn, input, f, p, 10, 11);
                 break;
             case 4:
                 if (input == 1) {
@@ -150,38 +132,10 @@ public class GameLogic {
                 p.addMoney(-2);
                 break;
             case 6:
-                if (input == 1) {
-                    previous = p.getFieldIndex();
-                    p.setFieldIndex(19);
-                    actual = p.getFieldIndex();
-                    if (actual < previous)
-                        p.addMoney(f.getField(0).getValue());
-                    checkField(turn, pl, f);
-                } else {
-                    previous = p.getFieldIndex();
-                    p.setFieldIndex(20);
-                    actual = p.getFieldIndex();
-                    if (actual < previous)
-                        p.addMoney(f.getField(0).getValue());
-                    checkField(turn, pl, f);
-                }
+                choseFieldLogic(pl, turn, input, f, p, 19, 20);
                 break;
             case 7:
-                if (input == 1) {
-                    previous = p.getFieldIndex();
-                    p.setFieldIndex(4);
-                    actual = p.getFieldIndex();
-                    if (actual < previous)
-                        p.addMoney(f.getField(0).getValue());
-                    checkField(turn, pl, f);
-                } else {
-                    previous = p.getFieldIndex();
-                    p.setFieldIndex(5);
-                    actual = p.getFieldIndex();
-                    if (actual < previous)
-                        p.addMoney(f.getField(0).getValue());
-                    checkField(turn, pl, f);
-                }
+                choseFieldLogic(pl, turn, input, f, p, 4, 5);
                 break;
             case 8:
                 p.setFreeOutOfJail(true);
@@ -201,64 +155,53 @@ public class GameLogic {
                 p.addMoney(pl.getPlayersNum());
                 break;
             case 11:
-                if (input == 1) {
-                    previous = p.getFieldIndex();
-                    p.setFieldIndex(7);
-                    actual = p.getFieldIndex();
-                    if (actual < previous)
-                        p.addMoney(f.getField(0).getValue());
-                    checkField(turn, pl, f);
-                } else {
-                    previous = p.getFieldIndex();
-                    p.setFieldIndex(8);
-                    actual = p.getFieldIndex();
-                    if (actual < previous)
-                        p.addMoney(f.getField(0).getValue());
-                    checkField(turn, pl, f);
-                }
+                choseFieldLogic(pl, turn, input, f, p, 7, 8);
                 break;
             case 12:
-                if (input == 1) {
-                    previous = p.getFieldIndex();
-                    p.setFieldIndex(22);
-                    actual = p.getFieldIndex();
-                    if (actual < previous)
-                        p.addMoney(f.getField(0).getValue());
-                    checkField(turn, pl, f);
-                } else {
-                    previous = p.getFieldIndex();
-                    p.setFieldIndex(23);
-                    actual = p.getFieldIndex();
-                    if (actual < previous)
-                        p.addMoney(f.getField(0).getValue());
-                    checkField(turn, pl, f);
-                }
+                choseFieldLogic(pl, turn, input, f, p, 22, 23);
                 break;
             case 13:
                 p.addMoney(2);
                 break;
             case 14:
-
+                choseFieldLogic(pl, turn, input, f, p, 13, 14);
                 break;
             case 15:
-
+                previous = p.getFieldIndex();
+                p.setFieldIndex(10);
+                actual = p.getFieldIndex();
+                if (f.getField(10).getOwnerID() == 0)
+                    f.getField(10).setOwnerID(turn + 1);
+                else
+                    checkField(turn, pl, f);
                 break;
             case 16:
-
+                choseFieldLogic(pl, turn, input, f, p, 16, 17);
                 break;
             case 17:
-
+                choseFieldLogic(pl, turn, input, f, p, 1, 2);
                 break;
-            case 18:
-
-                break;
-            case 19:
-
-                break;
-            case 20:
 
         }
 
+    }
+
+    private void choseFieldLogic(PlayerList pl, int turn, int input, FieldList f, Player p, int no1, int no2) {
+        if (input == 1) {
+            previous = p.getFieldIndex();
+            p.setFieldIndex(no1);
+            actual = p.getFieldIndex();
+            if (actual < previous)
+                p.addMoney(f.getField(0).getValue());
+            checkField(turn, pl, f);
+        } else {
+            previous = p.getFieldIndex();
+            p.setFieldIndex(no2);
+            actual = p.getFieldIndex();
+            if (actual < previous)
+                p.addMoney(f.getField(0).getValue());
+            checkField(turn, pl, f);
+        }
     }
 
 
@@ -270,17 +213,10 @@ public class GameLogic {
         for (int i = 0; i < p.length; i++) {
             results[i] = p[i].getMoney();
         }
-        int temp;
-        for (int i = 1; i < results.length; i++) {
-            if (results[i - 1] > results[i]) {
-                temp = results[i - 1];
-                results[i - 1] = results[i];
-                results[i] = temp;
-            }
-        }
+        sortResults(results);
 
         if (results[results.length - 1] == results[results.length - 2]) {
-            propertyCount = true;
+            return propertyCount(pl, fl);
         } else {
             for (int i = 0; i < p.length; i++) {
                 if (p[i].getMoney() == results[results.length - 1]) {
@@ -288,7 +224,6 @@ public class GameLogic {
                 }
             }
         }
-        //todo propertyCount
         return 0;
     }
 
@@ -299,6 +234,38 @@ public class GameLogic {
                 haveAnyoneLost = true;
         }
         return haveAnyoneLost;
+    }
+
+    private int propertyCount(PlayerList pl, FieldList fl) {
+        int[] results = new int[pl.getPlayersNum()];
+
+        for (int i = 0; i < pl.getPlayersNum(); i++) {
+            results[i] = pl.getPlayer(i).getMoney();
+        }
+        for (int i = 0; i < fl.getSize(); i++) {
+            if (fl.getField(i).getOwnerID() != 0) {
+                results[fl.getField(i).getOwnerID() - 1] = results[fl.getField(i).getOwnerID() - 1] + fl.getField(i).getValue();
+            }
+        }
+        sortResults(results);
+        for (int i = 0; i < pl.getPlayersNum(); i++) {
+            if (pl.getPlayer(i).getMoney() == results[results.length - 1]) {
+                return i;
+            }
+        }
+
+        return 0;
+    }
+
+    private void sortResults(int[] results) {
+        int temp;
+        for (int i = 1; i < results.length; i++) {
+            if (results[i - 1] > results[i]) {
+                temp = results[i - 1];
+                results[i - 1] = results[i];
+                results[i] = temp;
+            }
+        }
     }
 
 }
