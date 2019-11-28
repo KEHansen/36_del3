@@ -7,6 +7,8 @@ import entity.PlayerList;
 
 public class GameLogic {
 
+    public boolean tie = false;
+
     public boolean landedOnChance = false;
 
     public boolean drawanother = false;
@@ -206,9 +208,8 @@ public class GameLogic {
     }
 
 
-    public int findWinner(int losingPlayer, FieldList fl, PlayerList pl) {
+    public int findWinner(FieldList fl, PlayerList pl) {
         Player[] p = pl.getPlayers();
-        Field[] f = fl.getFields();
         int[] results = new int[p.length];
 
         for (int i = 0; i < p.length; i++) {
@@ -217,7 +218,7 @@ public class GameLogic {
         sortResults(results);
 
         if (results[results.length - 1] == results[results.length - 2]) {
-            return propertyCount(pl, fl);
+            tie = true;
         } else {
             for (int i = 0; i < p.length; i++) {
                 if (p[i].getMoney() == results[results.length - 1]) {
@@ -237,7 +238,7 @@ public class GameLogic {
         return haveAnyoneLost;
     }
 
-    private int propertyCount(PlayerList pl, FieldList fl) {
+    public int propertyCount(PlayerList pl, FieldList fl) {
         int[] results = new int[pl.getPlayersNum()];
 
         for (int i = 0; i < pl.getPlayersNum(); i++) {

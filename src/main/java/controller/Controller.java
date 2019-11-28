@@ -102,7 +102,12 @@ public class Controller {
              turn = (turn + 1) % playerNum;
          }
 
-         winner = logic.findWinner(turn, fieldList, list);
+         winner = logic.findWinner(fieldList, list);
+         if (logic.tie) {
+             winner = logic.propertyCount(list, fieldList);
+             matGUI.showMessageChance(0);
+         }
+
          matGUI.showMessage(7, list.getPlayer(winner).getName());
      }
 }

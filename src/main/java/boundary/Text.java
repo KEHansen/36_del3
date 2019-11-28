@@ -11,12 +11,13 @@ public class Text {
                     "%s chose to draw another card \n", // 5
                     "%s used a get-free-out-jail card\n",
                     "%s had the most money and have won the game \n",
-                    "%s landed on GO TO JAIL and went to jail \n"
+                    "%s landed on GO TO JAIL and went to jail \n",
+
             };
 
     public final static String[] CHANCETEXT =
             {
-                    "%s landed on chance and has to pick a chance card \n",
+                    "It's a TIE so the value of your properties will be added to your balance \n",
                     "Move to START and receive 2M \n", // 1 ChanceCard
                     "Move UP TO 5 fields forward \n", // 2 ChanceCard
                     "Move to an ORANGE field if it's available you get it for free, if not pay the owner rent \n", // 3 ChanceCard
