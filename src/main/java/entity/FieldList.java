@@ -62,6 +62,7 @@ public class FieldList {
         for (int i=0; i<fields.length; i++) {
             fieldText[i][0] = fields[i].getName();
             fieldText[i][1] = "" + fields[i].getValue();
+
         }
         return fieldText;
     }

@@ -1,7 +1,6 @@
 package boundary;
 
 import entity.Field;
-import entity.PlayerList;
 import gui_fields.GUI_Car;
 import gui_fields.GUI_Field;
 import gui_fields.GUI_Ownable;
@@ -15,8 +14,6 @@ public class MatadorGUI {
     private GUI_Field[] guiFields;
     private GUI_Player[] players;
     private GUI_Car[] cars;
-    private GUI_Car.Type type;
-    private GUI_Car.Pattern pattern;
 
 
     public MatadorGUI(GUI gui) {
@@ -28,14 +25,15 @@ public class MatadorGUI {
         players = new GUI_Player[p.length];
         cars = new GUI_Car[p.length];
         for (int i=0; i<p.length;i++){
-            cars[i] = new GUI_Car(p[i].getColor(), null,type.CAR , pattern.FILL);
+            cars[i] = new GUI_Car(p[i].getColor(), null, GUI_Car.Type.CAR, GUI_Car.Pattern.FILL);
             players[i] = new GUI_Player(p[i].getName(),p[i].getMoney(), cars[i]);
             gui.addPlayer(players[i]);
         }
 
         // sæt alle biler på start
-        for (int i = 0; i < players.length; i++)
-            guiFields[0].setCar(players[i], true);
+        for (GUI_Player player : players){
+            guiFields[0].setCar(player, true);
+        }
     }
 
     public void showMessage(int no, String name) {
@@ -55,7 +53,7 @@ public class MatadorGUI {
     }
 
     public void showMessageChance(int no) {
-        gui.showMessage(String.format(Text.CHANCETEXT[no]));
+        gui.showMessage(Text.CHANCETEXT[no]);
     }
 
 

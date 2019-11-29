@@ -7,7 +7,6 @@ public class Player {
     private int money;
     private int fieldIndex;
     private boolean haveLost;
-    private boolean throwAgain;
     private boolean inJail;
     private boolean freeOutOfJail;
     private boolean buying;
@@ -18,7 +17,6 @@ public class Player {
         money=0;
         fieldIndex = 0;
         haveLost=false;
-        throwAgain=false;
         inJail =false;
         freeOutOfJail=false;
         buying=false;

@@ -221,7 +221,7 @@ public class GameLogic {
     }
 
 
-    public int findWinner(FieldList fl, PlayerList pl) {
+    public int findWinner(PlayerList pl) {
         Player[] p = pl.getPlayers();
         int[] results = new int[p.length];
 

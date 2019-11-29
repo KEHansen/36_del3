@@ -4,7 +4,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class DiceTest {
-    int faces = 6;
+    final int faces = 6;
 
     @Test
     public void roll() {
@@ -22,7 +22,7 @@ public class DiceTest {
         Dice dice1 = new Dice(faces);
         int occurrences = 100000;
         float[] arr = new float[faces];
-        int t = 0;
+        int t;
         for (int i = 0; i < occurrences; i++) {
             dice1.roll();
             t = dice1.getFaceValue() - 1;
