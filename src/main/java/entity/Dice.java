@@ -2,6 +2,7 @@ package entity;
 
 public class Dice {
 
+
     int i = 0;
     private int faces;
     private int faceValue;
