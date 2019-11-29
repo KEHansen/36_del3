@@ -51,7 +51,7 @@ public class Player {
         if (money + diff >= 0) {
             money = money + diff;
         } else {
-            haveLost = true;
+            setHaveLost(true);
             money = money + diff;
         }
     }
@@ -59,10 +59,6 @@ public class Player {
     public boolean isHaveLost() {return haveLost;}
 
     public void setHaveLost(boolean haveLost) { this.haveLost = haveLost; }
-
-    public boolean isThrowAgain(){return throwAgain;}
-
-    public void setThrowAgain(boolean throwAgain) { this.throwAgain = throwAgain; }
 
     public int getFieldIndex() { return fieldIndex; }
 
