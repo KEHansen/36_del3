@@ -4,8 +4,6 @@ import java.awt.*;
 
 public class PlayerList {
 
-    //ide fra lærers CDIO 2:
-
     private Player[] players;
 
     private int playersNum;
@@ -35,15 +33,8 @@ public class PlayerList {
     public Color getColor(int i){
         return colorList[i];
     }
-
     public Color[] getColorList() {
         return colorList;
     }
-//    public void addspiller(int antal){
-//        String[i] name = {};
-//        for (int i=0; i<playersNum;i++){
-//            players[i].setName(navne[i]);
-//            players[i].setColor(i);
-//        }
- //   }
+
 }
