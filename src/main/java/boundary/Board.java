@@ -1,11 +1,7 @@
 package boundary;
 import entity.Field;
 import gui_fields.GUI_Field;
-import gui_fields.GUI_Ownable;
 import gui_fields.GUI_Street;
-import gui_main.GUI;
-
-import java.awt.*;
 
 public class Board {
 

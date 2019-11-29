@@ -1,6 +1,4 @@
 package logic;
-
-import entity.Field;
 import entity.FieldList;
 import entity.Player;
 import entity.PlayerList;
@@ -25,6 +23,13 @@ public class GameLogic {
         return balance;
     }
 
+    /**
+     * @param faceValue: Værdien af terningesiden.
+     * @param turn: Hvilken spillers tur det er.
+     * @param pl: Liste af spillerne.
+     * @param f: Liste af spillets felter.
+     * @method movePlayer: Flytter spilleren og tjekker om spilleren passere start, og hvilken typefelt spilleren lander på.
+     */
     public void movePlayer(int faceValue, int turn, PlayerList pl, FieldList f) {
         Player p = pl.getPlayer(turn);
         previous = p.getFieldIndex();
@@ -56,6 +61,12 @@ public class GameLogic {
     }
 
 
+    /**
+     * @param turn: Hvilken spillers tur det er.
+     * @param pl: Liste af spillerne.
+     * @param f: Liste af spillets felter.
+     * @method checkField: Tjekker hvorvidt feltet en spiller er landet på er ejet af en anden spiller eller ej.
+     */
     private void checkField(int turn, PlayerList pl, FieldList f) {
         Player p = pl.getPlayer(turn);
         int owner = f.getField(p.getFieldIndex()).getOwnerID();
@@ -93,20 +104,19 @@ public class GameLogic {
         p.setInJail(false);
     }
 
-    public void chance() {
-
-    }
-
-
-
-
-
-    public int dragCard() {
+    public int drawCard() {
         int amountOfCards = 17;
         chance = (int) (Math.random() * amountOfCards) + 1;
         return chance;
     }
 
+    /**
+     * @param turn: Hvilken spillers tur det er.
+     * @param pl: Liste af spillerne.
+     * @param input: Værdien af det input som spilleren har givet igennem GUI'en, når vedkommende skal træffe et valg.
+     * @param f: Liste af spillets felter.
+     * @method chanceCards: Udfører det chancekort som spilleren har trukket.
+     */
     public void chanceCards(PlayerList pl, int turn, int input, FieldList f) {
         Player p = pl.getPlayer(turn);
         landedOnChance = false;
@@ -189,6 +199,9 @@ public class GameLogic {
 
     }
 
+    /**
+     * @method choseFieldLogic: Bruger inputet fra tidligere til at bestemme hvor spilleren skal flytte hen.
+     */
     private void choseFieldLogic(PlayerList pl, int turn, int input, FieldList f, Player p, int no1, int no2) {
         if (input == 1) {
             previous = p.getFieldIndex();

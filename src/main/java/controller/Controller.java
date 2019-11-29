@@ -82,11 +82,11 @@ public class Controller {
 
              if (logic.landedOnChance) {
                  matGUI.showMessage(4, name);
-                 input = matGUI.guiChance(logic.dragCard());
+                 input = matGUI.guiChance(logic.drawCard());
                  logic.chanceCards(list, turn, input, fieldList);
                  if (logic.drawanother) {
                      matGUI.showMessage(5, name);
-                     input = matGUI.guiChance(logic.dragCard());
+                     input = matGUI.guiChance(logic.drawCard());
                      logic.chanceCards(list, turn, input, fieldList);
                  }
              }
