@@ -21,14 +21,14 @@ public class DiceTest {
         // Testen viser at vores ternings facevalue, matcher med almindelig sandsylighed.
         Dice dice1 = new Dice(faces);
         int occurrences = 100000;
-        float[] arr = new float[6];
+        float[] arr = new float[faces];
         int t = 0;
         for (int i = 0; i < occurrences; i++) {
             dice1.roll();
             t = dice1.getFaceValue() - 1;
             arr[t] = arr[t] + 1;
         }
-        for (int i = 0; i < 6; i++) {
+        for (int i = 0; i < faces; i++) {
             assertEquals(16.67, arr[i] / occurrences * 100, 4);
         }
     }
